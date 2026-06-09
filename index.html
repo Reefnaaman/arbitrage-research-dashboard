@@ -391,7 +391,6 @@
             <div class="nav-tab" onclick="showTab('services')">AI Services</div>
             <div class="nav-tab" onclick="showTab('professional')">Professional Networks</div>
             <div class="nav-tab" onclick="showTab('validation')">Validation</div>
-            <div class="nav-tab" onclick="showTab('scoring')">Scoring</div>
         </div>
 
         <div id="overview" class="tab-content active">
@@ -430,15 +429,15 @@
                     <div class="expandable">
                         <div class="expandable-header" onclick="toggleExpand(this)">
                             <span class="expand-icon">▶</span>
-                            <strong>Pipeline Overview (17 Total)</strong>
+                            <strong>Pipeline Overview (10 Total)</strong>
                         </div>
                         <div class="expandable-content">
-                            <p><strong>Information Arbitrage:</strong> 11 opportunities - exploiting information asymmetries</p>
+                            <p><strong>Information Arbitrage:</strong> 3 opportunities - exploiting information asymmetries</p>
                             <p><strong>AI Services:</strong> 3 opportunities - replacing manual processing with AI</p>
                             <p><strong>Professional Networks:</strong> 4 opportunities - geographic + expertise arbitrage</p>
                             <br>
                             <p><strong>Stage Distribution:</strong></p>
-                            <p>🔍 Identified: 13 opportunities | 📊 Researching: 2 | 💬 Validating: 2</p>
+                            <p>🔍 Identified: 7 opportunities | 📊 Researching: 2 | 💬 Validating: 1</p>
                         </div>
                     </div>
                     <div class="expandable">
@@ -619,258 +618,6 @@
                         <div class="stage-buttons">
                             <div class="stage-btn" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
                             <div class="stage-btn active" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="opportunity-item" data-stage="identified" data-id="real-estate-distress" onclick="toggleStageProgression(this)">
-                    <div class="opportunity-title">Real Estate Distress</div>
-                    <div class="opportunity-description">FSBO Facebook groups → Investor networks</div>
-                    <div class="opportunity-meta">
-                        <span class="stage-indicator stage-identified">🔍 Identified</span>
-                    </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                    </div>
-                    <div class="stage-progression">
-                        <div class="stage-buttons">
-                            <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="opportunity-item" data-stage="identified" data-id="equipment-arbitrage" onclick="toggleStageProgression(this)">
-                    <div class="opportunity-title">Equipment Arbitrage</div>
-                    <div class="opportunity-description">Facebook Marketplace → Commercial buyers</div>
-                    <div class="opportunity-meta">
-                        <span class="stage-indicator stage-identified">🔍 Identified</span>
-                    </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                    </div>
-                    <div class="stage-progression">
-                        <div class="stage-buttons">
-                            <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="opportunity-item" data-stage="identified" data-id="labor-talent-arbitrage" onclick="toggleStageProgression(this)">
-                    <div class="opportunity-title">Labor/Talent Arbitrage</div>
-                    <div class="opportunity-description">LinkedIn layoffs → Recruiting networks</div>
-                    <div class="opportunity-meta">
-                        <span class="stage-indicator stage-identified">🔍 Identified</span>
-                    </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                    </div>
-                    <div class="stage-progression">
-                        <div class="stage-buttons">
-                            <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="opportunity-item" data-stage="identified" data-id="manufacturing-capacity" onclick="toggleStageProgression(this)">
-                    <div class="opportunity-title">Manufacturing Capacity</div>
-                    <div class="opportunity-description">Regional forums → Global brand networks</div>
-                    <div class="opportunity-meta">
-                        <span class="stage-indicator stage-identified">🔍 Identified</span>
-                    </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                    </div>
-                    <div class="stage-progression">
-                        <div class="stage-buttons">
-                            <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="opportunity-item" data-stage="identified" data-id="ip-patent-arbitrage" onclick="toggleStageProgression(this)">
-                    <div class="opportunity-title">IP/Patent Arbitrage</div>
-                    <div class="opportunity-description">Patent databases → R&D teams</div>
-                    <div class="opportunity-meta">
-                        <span class="stage-indicator stage-identified">🔍 Identified</span>
-                    </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                    </div>
-                    <div class="stage-progression">
-                        <div class="stage-buttons">
-                            <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="opportunity-item" data-stage="identified" data-id="bankruptcy-legal" onclick="toggleStageProgression(this)">
-                    <div class="opportunity-title">Bankruptcy/Legal</div>
-                    <div class="opportunity-description">Legal filings → Distressed asset investors</div>
-                    <div class="opportunity-meta">
-                        <span class="stage-indicator stage-identified">🔍 Identified</span>
-                    </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                    </div>
-                    <div class="stage-progression">
-                        <div class="stage-buttons">
-                            <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="opportunity-item" data-stage="identified" data-id="agricultural-commodity" onclick="toggleStageProgression(this)">
-                    <div class="opportunity-title">Agricultural/Commodity</div>
-                    <div class="opportunity-description">Farmer forums → Processors/exporters</div>
-                    <div class="opportunity-meta">
-                        <span class="stage-indicator stage-identified">🔍 Identified</span>
-                    </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                    </div>
-                    <div class="stage-progression">
-                        <div class="stage-buttons">
-                            <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
                             <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
                             <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
                             <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
@@ -1175,62 +922,6 @@
                         <div class="question">Can we bring both buyers and sellers onto platform?</div>
                         <div class="question">Winner-take-most dynamics potential?</div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="scoring" class="tab-content">
-            <div class="card scoring-matrix">
-                <h2>Market Scoring Matrix</h2>
-                <div class="matrix-grid">
-                    <div class="matrix-cell matrix-header"></div>
-                    <div class="matrix-cell matrix-header">Info Asymmetry</div>
-                    <div class="matrix-cell matrix-header">Temporal Diff</div>
-                    <div class="matrix-cell matrix-header">Spatial Diff</div>
-                    <div class="matrix-cell matrix-header">Preference Diff</div>
-                    <div class="matrix-cell matrix-header">Capability Diff</div>
-                    
-                    <div class="matrix-cell matrix-row-header">B2B SaaS</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    
-                    <div class="matrix-cell matrix-row-header">Insurance</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    
-                    <div class="matrix-cell matrix-row-header">Travel</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-
-                    <div class="matrix-cell matrix-row-header">Liquidation</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-
-                    <div class="matrix-cell matrix-row-header">Real Estate</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-
-                    <div class="matrix-cell matrix-row-header">Equipment</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
-                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
                 </div>
             </div>
         </div>

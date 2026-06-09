@@ -304,8 +304,8 @@
 
         <div class="nav-tabs">
         <div class="nav-tab active" onclick="showTab('overview')">Overview</div>
-        <div class="nav-tab" onclick="showTab('arbitrage')">Arbitrage Patterns</div>
-        <div class="nav-tab" onclick="showTab('models')">Business Models</div>
+        <div class="nav-tab" onclick="showTab('arbitrage')">Information Arbitrage</div>
+        <div class="nav-tab" onclick="showTab('automation')">AI Automation</div>
         <div class="nav-tab" onclick="showTab('validation')">Validation</div>
         <div class="nav-tab" onclick="showTab('scoring')">Scoring</div>
         </div>
@@ -370,7 +370,7 @@
 
         <div id="arbitrage" class="tab-content">
             <div class="card">
-                <h2>Systematic Arbitrage Patterns</h2>
+                <h2>Pure Information Arbitrage</h2>
                 <div class="expandable">
                     <div class="expandable-header" onclick="toggleExpand(this)">
                         <span class="expand-icon">▶</span>
@@ -392,134 +392,90 @@
                     <h4>Liquidation Arbitrage</h4>
                     <p>Facebook groups → National liquidator networks</p>
                     <span class="status-indicator status-completed">Analyzed</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
                 </div>
                 <div class="research-item" onclick="updateStatus(this)">
                     <h4>Real Estate Distress</h4>
                     <p>FSBO Facebook groups → Investor networks</p>
                     <span class="status-indicator status-not-started">Not Started</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
                 </div>
                 <div class="research-item" onclick="updateStatus(this)">
                     <h4>Equipment Arbitrage</h4>
                     <p>Facebook Marketplace → Commercial buyers</p>
                     <span class="status-indicator status-not-started">Not Started</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
                 </div>
                 <div class="research-item" onclick="updateStatus(this)">
                     <h4>Labor/Talent Arbitrage</h4>
                     <p>LinkedIn layoffs → Recruiting networks</p>
                     <span class="status-indicator status-not-started">Not Started</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
                 </div>
                 <div class="research-item" onclick="updateStatus(this)">
                     <h4>Manufacturing Capacity</h4>
                     <p>Regional forums → Global brand networks</p>
                     <span class="status-indicator status-not-started">Not Started</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
                 </div>
                 <div class="research-item" onclick="updateStatus(this)">
                     <h4>IP/Patent Arbitrage</h4>
                     <p>Patent databases → R&D teams</p>
                     <span class="status-indicator status-not-started">Not Started</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
                 </div>
                 <div class="research-item" onclick="updateStatus(this)">
                     <h4>Bankruptcy/Legal</h4>
                     <p>Legal filings → Distressed asset investors</p>
                     <span class="status-indicator status-not-started">Not Started</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
                 </div>
                 <div class="research-item" onclick="updateStatus(this)">
                     <h4>Platform Pricing Arbitrage</h4>
                     <p>Language/geographic price discrimination → Optimized bookings</p>
                     <span class="status-indicator status-in-progress">New Discovery</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
                 </div>
                 <div class="research-item" onclick="updateStatus(this)">
                     <h4>Currency Conversion Arbitrage</h4>
                     <p>Business payment inefficiencies → Optimized conversion</p>
                     <span class="status-indicator status-in-progress">New Discovery</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
-                </div>
-                <div class="research-item" onclick="updateStatus(this)">
-                    <h4>Cross-Platform Reputation Arbitrage</h4>
-                    <p>Review differences across platforms → Reputation networks</p>
-                    <span class="status-indicator status-in-progress">New Discovery</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
-                </div>
-                <div class="research-item" onclick="updateStatus(this)">
-                    <h4>Social Media Lead Processing System</h4>
-                    <p>Public social posts → AI-qualified leads → Industry networks</p>
-                    <span class="status-indicator status-in-progress">Meta-System</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
-                </div>
-                <div class="research-item" onclick="updateStatus(this)">
-                    <h4>OSINT Intelligence Arbitrage</h4>
-                    <p>Public data noise → AI-processed signals → Intelligence buyers</p>
-                    <span class="status-indicator status-in-progress">Meta-System</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
-                </div>
-                <div class="research-item" onclick="updateStatus(this)">
-                    <h4>Agent-to-Agent Commerce Infrastructure</h4>
-                    <p>Niche industry agent systems → Human-in-the-loop → Automated commerce</p>
-                    <span class="status-indicator status-not-started">Meta-System</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
-                </div>
-                <div class="research-item" onclick="updateStatus(this)">
-                    <h4>VC Pitch Deck Fact-Checking Swarm</h4>
-                    <p>AI agent swarm → Verify deck claims → Proactive DD suggestions</p>
-                    <span class="status-indicator status-in-progress">High Potential</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
                 </div>
                 <div class="research-item" onclick="updateStatus(this)">
                     <h4>Agricultural/Commodity</h4>
                     <p>Farmer forums → Processors/exporters</p>
                     <span class="status-indicator status-not-started">Not Started</span>
-                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
                 </div>
             </div>
         </div>
 
-        <div id="models" class="tab-content">
+        <div id="automation" class="tab-content">
             <div class="card">
-                <h2>Revenue Models Analysis</h2>
-                <div class="expandable expanded">
-                    <div class="expandable-header" onclick="toggleExpand(this)">
-                        <span class="expand-icon">▼</span>
-                        <strong>Transaction Fee Model</strong>
-                    </div>
-                    <div class="expandable-content">
-                        <p><strong>Structure:</strong> 15-20% of spread between buy/sell</p>
-                        <p><strong>Example:</strong> Buy $10K, sell $15K → $1K fee</p>
-                        <p><strong>Pros:</strong> Only paid when value created</p>
-                        <p><strong>Cons:</strong> Requires capital for inventory</p>
-                    </div>
-                </div>
+                <h2>AI Process Automation</h2>
                 <div class="expandable">
                     <div class="expandable-header" onclick="toggleExpand(this)">
                         <span class="expand-icon">▶</span>
-                        <strong>Matching Fee Model</strong>
+                        <strong>Different Business Model</strong>
                     </div>
                     <div class="expandable-content">
-                        <p><strong>Structure:</strong> Fixed fee per connection ($500-2000)</p>
-                        <p><strong>Pros:</strong> No inventory risk, faster cash</p>
-                        <p><strong>Cons:</strong> Lower total value capture</p>
-                    </div>
-                </div>
-                <div class="expandable">
-                    <div class="expandable-header" onclick="toggleExpand(this)">
-                        <span class="expand-icon">▶</span>
-                        <strong>Subscription + Transaction Hybrid</strong>
-                    </div>
-                    <div class="expandable-content">
-                        <p><strong>Structure:</strong> Monthly fee + small transaction %</p>
-                        <p><strong>Pros:</strong> Predictable revenue + upside</p>
-                        <p><strong>Cons:</strong> Need critical mass of deal flow</p>
+                        <p>These are <strong>AI automation services</strong>, not information arbitrage.</p>
+                        <p>Revenue from replacing manual processes with AI, not exploiting information asymmetries.</p>
+                        <p>Direct fee-for-service model vs. arbitrage spread capture.</p>
                     </div>
                 </div>
             </div>
+            <div class="research-areas">
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>VC Pitch Deck Fact-Checking</h4>
+                    <p>AI verification → Manual DD replacement → Direct fees ($500-5K/deck)</p>
+                    <span class="status-indicator status-in-progress">High Potential</span>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>OSINT Intelligence Processing</h4>
+                    <p>Public data noise → AI-processed signals → Intelligence reports</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Social Media Lead Processing</h4>
+                    <p>Public social posts → AI-qualified leads → CRM integration</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                </div>
+            </div>
         </div>
+
+
 
         <div id="validation" class="tab-content">
             <div class="card validation-phases">

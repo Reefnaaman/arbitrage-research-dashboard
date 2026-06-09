@@ -143,33 +143,127 @@
 
         .status-indicator {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.8em;
             font-weight: 600;
             margin-right: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
         }
 
-        .delete-btn {
-            background: #fed7d7;
-            color: #c53030;
-            border: none;
-            border-radius: 4px;
-            padding: 4px 8px;
+        .status-indicator:hover {
+            transform: scale(1.05);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* Research Stage Colors */
+        .stage-identified { background: #e2e8f0; color: #4a5568; }
+        .stage-researching { background: #3182ce; color: white; }
+        .stage-validating { background: #dd6b20; color: white; }
+        .stage-designing { background: #805ad5; color: white; }
+        .stage-testing { background: #d69e2e; color: white; }
+        .stage-proven { background: #38a169; color: white; }
+        .stage-paused { background: #718096; color: white; }
+        .stage-killed { background: #c53030; color: white; }
+
+        /* Legacy status classes for compatibility */
+        .status-not-started { background: #e2e8f0; color: #4a5568; }
+        .status-in-progress { background: #3182ce; color: white; }
+        .status-completed { background: #38a169; color: white; }
+
+        .stage-legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+
+        .stage-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+
+        .stage-legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .stage-progression {
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .stage-btn {
+            padding: 2px 8px;
             font-size: 0.7em;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 12px;
             cursor: pointer;
-            margin-left: 8px;
             transition: all 0.2s ease;
         }
 
-        .delete-btn:hover {
-            background: #fc8181;
-            color: white;
+        .stage-btn:hover {
+            background: #f7fafc;
+            border-color: #cbd5e0;
         }
 
-        .status-not-started { background: #fed7d7; color: #c53030; }
-        .status-in-progress { background: #feebc8; color: #dd6b20; }
-        .status-completed { background: #c6f6d5; color: #38a169; }
+        .stage-btn.active {
+            background: #4299e1;
+            color: white;
+            border-color: #4299e1;
+        }
+
+        .research-item {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .research-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transform: translateY(-1px);
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 24px;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .progress-bar.stage-identified { width: 12.5%; background: #e2e8f0; }
+        .progress-bar.stage-researching { width: 25%; background: #3182ce; }
+        .progress-bar.stage-validating { width: 37.5%; background: #dd6b20; }
+        .progress-bar.stage-designing { width: 50%; background: #805ad5; }
+        .progress-bar.stage-testing { width: 62.5%; background: #d69e2e; }
+        .progress-bar.stage-proven { width: 100%; background: #38a169; }
+        .progress-bar.stage-paused { width: 75%; background: #718096; }
+        .progress-bar.stage-killed { width: 100%; background: #c53030; }
 
         .scoring-matrix {
             grid-column: 1 / -1;
@@ -386,57 +480,202 @@
                         <p><strong>7. Formality:</strong> Informal info → Formal buying processes</p>
                     </div>
                 </div>
+                
+                <div class="stage-legend">
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #e2e8f0;"></div>
+                        <span>🔍 Identified</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #3182ce;"></div>
+                        <span>📊 Researching</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #dd6b20;"></div>
+                        <span>💬 Validating</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #805ad5;"></div>
+                        <span>⚙️ Designing</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #d69e2e;"></div>
+                        <span>🧪 Testing</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #38a169;"></div>
+                        <span>✅ Proven</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #718096;"></div>
+                        <span>⏸️ Paused</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #c53030;"></div>
+                        <span>❌ Killed</span>
+                    </div>
+                </div>
             </div>
             <div class="research-areas">
-                <div class="research-item" onclick="updateStatus(this)">
+                <div class="research-item" data-stage="validating" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-validating"></div>
+                    </div>
                     <h4>Liquidation Arbitrage</h4>
                     <p>Facebook groups → National liquidator networks</p>
-                    <span class="status-indicator status-completed">Analyzed</span>
+                    <span class="status-indicator stage-validating">💬 Validating</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn active" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
                 </div>
-                <div class="research-item" onclick="updateStatus(this)">
-                    <h4>Real Estate Distress</h4>
-                    <p>FSBO Facebook groups → Investor networks</p>
-                    <span class="status-indicator status-not-started">Not Started</span>
-                </div>
-                <div class="research-item" onclick="updateStatus(this)">
-                    <h4>Equipment Arbitrage</h4>
-                    <p>Facebook Marketplace → Commercial buyers</p>
-                    <span class="status-indicator status-not-started">Not Started</span>
-                </div>
-                <div class="research-item" onclick="updateStatus(this)">
-                    <h4>Labor/Talent Arbitrage</h4>
-                    <p>LinkedIn layoffs → Recruiting networks</p>
-                    <span class="status-indicator status-not-started">Not Started</span>
-                </div>
-                <div class="research-item" onclick="updateStatus(this)">
-                    <h4>Manufacturing Capacity</h4>
-                    <p>Regional forums → Global brand networks</p>
-                    <span class="status-indicator status-not-started">Not Started</span>
-                </div>
-                <div class="research-item" onclick="updateStatus(this)">
-                    <h4>IP/Patent Arbitrage</h4>
-                    <p>Patent databases → R&D teams</p>
-                    <span class="status-indicator status-not-started">Not Started</span>
-                </div>
-                <div class="research-item" onclick="updateStatus(this)">
-                    <h4>Bankruptcy/Legal</h4>
-                    <p>Legal filings → Distressed asset investors</p>
-                    <span class="status-indicator status-not-started">Not Started</span>
-                </div>
-                <div class="research-item" onclick="updateStatus(this)">
+                <div class="research-item" data-stage="researching" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-researching"></div>
+                    </div>
                     <h4>Platform Pricing Arbitrage</h4>
                     <p>Language/geographic price discrimination → Optimized bookings</p>
-                    <span class="status-indicator status-in-progress">New Discovery</span>
+                    <span class="status-indicator stage-researching">📊 Researching</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn active" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
                 </div>
-                <div class="research-item" onclick="updateStatus(this)">
+                <div class="research-item" data-stage="researching" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-researching"></div>
+                    </div>
                     <h4>Currency Conversion Arbitrage</h4>
                     <p>Business payment inefficiencies → Optimized conversion</p>
-                    <span class="status-indicator status-in-progress">New Discovery</span>
+                    <span class="status-indicator stage-researching">📊 Researching</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn active" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
                 </div>
-                <div class="research-item" onclick="updateStatus(this)">
+                <div class="research-item" data-stage="identified" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-identified"></div>
+                    </div>
+                    <h4>Real Estate Distress</h4>
+                    <p>FSBO Facebook groups → Investor networks</p>
+                    <span class="status-indicator stage-identified">🔍 Identified</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
+                </div>
+                <div class="research-item" data-stage="identified" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-identified"></div>
+                    </div>
+                    <h4>Equipment Arbitrage</h4>
+                    <p>Facebook Marketplace → Commercial buyers</p>
+                    <span class="status-indicator stage-identified">🔍 Identified</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
+                </div>
+                <div class="research-item" data-stage="identified" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-identified"></div>
+                    </div>
+                    <h4>Labor/Talent Arbitrage</h4>
+                    <p>LinkedIn layoffs → Recruiting networks</p>
+                    <span class="status-indicator stage-identified">🔍 Identified</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
+                </div>
+                <div class="research-item" data-stage="identified" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-identified"></div>
+                    </div>
+                    <h4>Manufacturing Capacity</h4>
+                    <p>Regional forums → Global brand networks</p>
+                    <span class="status-indicator stage-identified">🔍 Identified</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
+                </div>
+                <div class="research-item" data-stage="identified" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-identified"></div>
+                    </div>
+                    <h4>IP/Patent Arbitrage</h4>
+                    <p>Patent databases → R&D teams</p>
+                    <span class="status-indicator stage-identified">🔍 Identified</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
+                </div>
+                <div class="research-item" data-stage="identified" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-identified"></div>
+                    </div>
+                    <h4>Bankruptcy/Legal</h4>
+                    <p>Legal filings → Distressed asset investors</p>
+                    <span class="status-indicator stage-identified">🔍 Identified</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
+                </div>
+                <div class="research-item" data-stage="identified" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-identified"></div>
+                    </div>
                     <h4>Agricultural/Commodity</h4>
                     <p>Farmer forums → Processors/exporters</p>
-                    <span class="status-indicator status-not-started">Not Started</span>
+                    <span class="status-indicator stage-identified">🔍 Identified</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -455,22 +694,90 @@
                         <p>Direct fee-for-service model vs. arbitrage spread capture.</p>
                     </div>
                 </div>
+                
+                <div class="stage-legend">
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #e2e8f0;"></div>
+                        <span>🔍 Identified</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #3182ce;"></div>
+                        <span>📊 Researching</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #dd6b20;"></div>
+                        <span>💬 Validating</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #805ad5;"></div>
+                        <span>⚙️ Designing</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #d69e2e;"></div>
+                        <span>🧪 Testing</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #38a169;"></div>
+                        <span>✅ Proven</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #718096;"></div>
+                        <span>⏸️ Paused</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #c53030;"></div>
+                        <span>❌ Killed</span>
+                    </div>
+                </div>
             </div>
             <div class="research-areas">
-                <div class="research-item" onclick="updateStatus(this)">
+                <div class="research-item" data-stage="validating" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-validating"></div>
+                    </div>
                     <h4>VC Pitch Deck Fact-Checking</h4>
                     <p>AI verification → Manual DD replacement → Direct fees ($500-5K/deck)</p>
-                    <span class="status-indicator status-in-progress">High Potential</span>
+                    <span class="status-indicator stage-validating">💬 Validating</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn active" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
                 </div>
-                <div class="research-item" onclick="updateStatus(this)">
+                <div class="research-item" data-stage="identified" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-identified"></div>
+                    </div>
                     <h4>OSINT Intelligence Processing</h4>
                     <p>Public data noise → AI-processed signals → Intelligence reports</p>
-                    <span class="status-indicator status-not-started">Not Started</span>
+                    <span class="status-indicator stage-identified">🔍 Identified</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
                 </div>
-                <div class="research-item" onclick="updateStatus(this)">
+                <div class="research-item" data-stage="identified" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-identified"></div>
+                    </div>
                     <h4>Social Media Lead Processing</h4>
                     <p>Public social posts → AI-qualified leads → CRM integration</p>
-                    <span class="status-indicator status-not-started">Not Started</span>
+                    <span class="status-indicator stage-identified">🔍 Identified</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -609,20 +916,56 @@
             element.parentElement.classList.toggle('expanded');
         }
 
-        function updateStatus(element) {
-            const indicator = element.querySelector('.status-indicator');
-            const currentStatus = indicator.className;
+        function showStageProgression(element) {
+            // Hide all other stage progressions
+            const allProgressions = document.querySelectorAll('.stage-progression');
+            allProgressions.forEach(prog => {
+                if (prog !== element.querySelector('.stage-progression')) {
+                    prog.style.display = 'none';
+                }
+            });
             
-            if (currentStatus.includes('not-started')) {
-                indicator.className = 'status-indicator status-in-progress';
-                indicator.textContent = 'In Progress';
-            } else if (currentStatus.includes('in-progress')) {
-                indicator.className = 'status-indicator status-completed';
-                indicator.textContent = 'Completed';
-            } else {
-                indicator.className = 'status-indicator status-not-started';
-                indicator.textContent = 'Not Started';
-            }
+            // Toggle the clicked item's stage progression
+            const progression = element.querySelector('.stage-progression');
+            progression.style.display = progression.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function changeStage(button, newStage) {
+            const item = button.closest('.research-item');
+            const indicator = item.querySelector('.status-indicator');
+            const progressBar = item.querySelector('.progress-bar');
+            const progression = item.querySelector('.stage-progression');
+            
+            // Update data attribute
+            item.setAttribute('data-stage', newStage);
+            
+            // Update indicator
+            const stageEmojis = {
+                'identified': '🔍 Identified',
+                'researching': '📊 Researching', 
+                'validating': '💬 Validating',
+                'designing': '⚙️ Designing',
+                'testing': '🧪 Testing',
+                'proven': '✅ Proven',
+                'paused': '⏸️ Paused',
+                'killed': '❌ Killed'
+            };
+            
+            indicator.textContent = stageEmojis[newStage];
+            indicator.className = `status-indicator stage-${newStage}`;
+            
+            // Update progress bar
+            progressBar.className = `progress-bar stage-${newStage}`;
+            
+            // Update active button
+            const stageButtons = progression.querySelectorAll('.stage-btn');
+            stageButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Hide progression after selection
+            setTimeout(() => {
+                progression.style.display = 'none';
+            }, 300);
         }
 
         function updateScore(cell) {
@@ -662,14 +1005,15 @@
             cell.textContent = newScore;
         }
 
-        function deleteItem(button) {
-            const item = button.closest('.research-item');
-            item.remove();
-        }
-
-        // Initialize some interactions
+        // Initialize interactions
         document.addEventListener('DOMContentLoaded', function() {
-            // You can add initialization code here
+            // Close stage progressions when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.research-item')) {
+                    const progressions = document.querySelectorAll('.stage-progression');
+                    progressions.forEach(prog => prog.style.display = 'none');
+                }
+            });
         });
     </script>
 </body>

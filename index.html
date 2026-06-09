@@ -19,53 +19,61 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             padding: 20px 0;
             border-bottom: 1px solid #e2e8f0;
         }
 
         .header h1 {
-            font-size: 2.2em;
+            font-size: 2.5em;
             font-weight: 700;
             color: #1a202c;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .header p {
-            font-size: 1em;
+            font-size: 1.1em;
             color: #718096;
         }
 
         .nav-tabs {
             display: flex;
-            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-bottom: 30px;
             border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
         }
 
         .nav-tab {
-            padding: 12px 24px;
+            padding: 12px 20px;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px 8px 0 0;
             cursor: pointer;
-            border-bottom: 3px solid transparent;
             font-weight: 500;
-            color: #718096;
             transition: all 0.2s ease;
+            color: #718096;
         }
 
         .nav-tab:hover {
-            color: #4299e1;
+            background: #edf2f7;
+            color: #2d3748;
         }
 
         .nav-tab.active {
-            color: #4299e1;
-            border-bottom-color: #4299e1;
+            background: white;
+            color: #3182ce;
+            border-color: #3182ce;
+            border-bottom-color: white;
+            margin-bottom: -1px;
         }
 
         .tab-content {
@@ -76,27 +84,125 @@
             display: block;
         }
 
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
         .card {
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 24px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             border: 1px solid #e2e8f0;
-            margin-bottom: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
         }
 
         .card h2 {
-            font-size: 1.3em;
+            font-size: 1.4em;
             margin-bottom: 16px;
             color: #2d3748;
             border-bottom: 2px solid #4299e1;
             padding-bottom: 8px;
         }
 
-        /* Opportunities Styles */
+        .validation-phases {
+            grid-column: 1 / -1;
+        }
+
+        .phase {
+            margin-bottom: 20px;
+            border-left: 4px solid #e2e8f0;
+            padding-left: 16px;
+            cursor: pointer;
+        }
+
+        .phase.active {
+            border-left-color: #4299e1;
+            background: #f7fafc;
+            padding: 12px 16px;
+            border-radius: 8px;
+        }
+
+        .phase h3 {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #2d3748;
+        }
+
+        .phase-questions {
+            display: none;
+            margin-top: 12px;
+        }
+
+        .phase.active .phase-questions {
+            display: block;
+        }
+
+        .question {
+            background: white;
+            padding: 12px 16px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border-left: 3px solid #4299e1;
+            font-size: 0.95em;
+        }
+
+        .expandable {
+            margin-bottom: 20px;
+        }
+
+        .expandable-header {
+            cursor: pointer;
+            padding: 12px 16px;
+            background: #f7fafc;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .expandable-header:hover {
+            background: #edf2f7;
+        }
+
+        .expand-icon {
+            transition: transform 0.2s ease;
+            font-size: 0.8em;
+        }
+
+        .expandable.active .expand-icon {
+            transform: rotate(90deg);
+        }
+
+        .expandable-content {
+            display: none;
+            padding: 16px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .expandable.active .expandable-content {
+            display: block;
+        }
+
+        .expandable-content p {
+            margin-bottom: 8px;
+        }
+
         .opportunities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 20px;
         }
 
@@ -111,76 +217,64 @@
 
         .opportunity-item:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transform: translateY(-1px);
-        }
-
-        .opportunity-header {
-            display: flex;
-            justify-content: between;
-            align-items: center;
-            margin-bottom: 12px;
+            transform: translateY(-2px);
         }
 
         .opportunity-title {
+            font-size: 1.2em;
             font-weight: 600;
-            font-size: 1.1em;
             color: #2d3748;
             margin-bottom: 8px;
         }
 
         .opportunity-description {
-            color: #4a5568;
+            color: #718096;
+            margin-bottom: 12px;
             font-size: 0.95em;
-            margin-bottom: 16px;
-            line-height: 1.5;
         }
 
         .opportunity-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         .stage-indicator {
             display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
             font-weight: 500;
         }
 
-        .stage-identified { background: #e2e8f0; color: #2d3748; }
-        .stage-researching { background: #bee3f8; color: #2b6cb0; }
-        .stage-validating { background: #fed7aa; color: #c05621; }
-        .stage-designing { background: #e9d8fd; color: #6b46c1; }
-        .stage-testing { background: #faf089; color: #975a16; }
-        .stage-proven { background: #9ae6b4; color: #276749; }
-        .stage-paused { background: #cbd5e0; color: #4a5568; }
-        .stage-killed { background: #fed7d7; color: #c53030; }
+        .stage-identified { background: #f7fafc; color: #718096; }
+        .stage-researching { background: #dbeafe; color: #1e40af; }
+        .stage-validating { background: #fed7aa; color: #ea580c; }
+        .stage-designing { background: #e9d5ff; color: #7c3aed; }
+        .stage-testing { background: #fef3c7; color: #d97706; }
+        .stage-proven { background: #d1fae5; color: #059669; }
+        .stage-paused { background: #e5e7eb; color: #6b7280; }
+        .stage-killed { background: #fee2e2; color: #dc2626; }
 
         .framework-scores {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 8px;
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid #e2e8f0;
+            margin-bottom: 16px;
+            font-size: 0.9em;
         }
 
         .framework-score {
             display: flex;
             justify-content: space-between;
-            font-size: 0.85em;
+            padding: 6px 0;
         }
 
         .score-value {
             font-weight: 600;
         }
 
-        .score-high { color: #38a169; }
-        .score-medium { color: #d69e2e; }
-        .score-low { color: #e53e3e; }
+        .score-high { color: #059669; }
+        .score-medium { color: #d97706; }
+        .score-low { color: #dc2626; }
         .score-unknown { color: #718096; }
 
         .stage-progression {
@@ -202,88 +296,84 @@
 
         .stage-btn {
             padding: 6px 12px;
+            background: #f7fafc;
             border: 1px solid #e2e8f0;
-            border-radius: 4px;
-            background: white;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 0.8em;
+            font-size: 0.85em;
             transition: all 0.2s ease;
         }
 
         .stage-btn:hover {
-            background: #f7fafc;
+            background: #edf2f7;
         }
 
         .stage-btn.active {
+            background: #3182ce;
+            color: white;
+            border-color: #3182ce;
+        }
+
+        .scoring-matrix {
+            grid-column: 1 / -1;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 150px repeat(5, 1fr);
+            gap: 2px;
+            margin-top: 20px;
+        }
+
+        .matrix-cell {
+            padding: 12px;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .matrix-header {
             background: #4299e1;
             color: white;
-            border-color: #4299e1;
+            font-weight: 600;
         }
 
-        /* Framework Styles */
-        .framework-sections {
-            display: grid;
-            gap: 24px;
+        .matrix-row-header {
+            background: #edf2f7;
+            font-weight: 600;
+            text-align: left;
         }
 
-        .framework-section {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            border: 1px solid #e2e8f0;
+        .score-cell {
+            cursor: pointer;
+            transition: background-color 0.2s ease;
         }
 
-        .framework-section h3 {
-            font-size: 1.1em;
-            color: #2d3748;
-            margin-bottom: 12px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 8px;
+        .score-cell:hover {
+            background: #e2e8f0;
         }
 
-        .criteria-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
-            margin-top: 16px;
-        }
-
-        .criterion {
-            padding: 16px;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            background: #f7fafc;
-        }
-
-        .criterion h4 {
-            font-size: 1em;
-            color: #2d3748;
-            margin-bottom: 8px;
-        }
-
-        .criterion p {
-            font-size: 0.9em;
-            color: #4a5568;
-            margin-bottom: 8px;
-        }
-
-        .criterion-example {
-            font-size: 0.85em;
-            color: #718096;
-            font-style: italic;
-        }
+        .score-cell.high { background: #d1fae5; color: #059669; }
+        .score-cell.medium { background: #fef3c7; color: #d97706; }
+        .score-cell.low { background: #fee2e2; color: #dc2626; }
 
         @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
             .opportunities-grid {
                 grid-template-columns: 1fr;
             }
             
-            .criteria-grid {
-                grid-template-columns: 1fr;
+            .matrix-grid {
+                grid-template-columns: 120px repeat(5, 60px);
+                font-size: 0.8em;
             }
             
-            .framework-scores {
-                grid-template-columns: 1fr;
+            .nav-tabs {
+                flex-direction: column;
             }
         }
     </style>
@@ -292,15 +382,77 @@
     <div class="container">
         <div class="header">
             <h1>J&R Research Hub</h1>
-            <p>Information arbitrage research and validation</p>
+            <p>Systematic analysis of automated market-making opportunities</p>
         </div>
 
         <div class="nav-tabs">
-            <div class="nav-tab active" onclick="showTab('opportunities', this)">Opportunities</div>
-            <div class="nav-tab" onclick="showTab('framework', this)">Framework</div>
+            <div class="nav-tab active" onclick="showTab('overview')">Overview</div>
+            <div class="nav-tab" onclick="showTab('arbitrage')">Information Arbitrage</div>
+            <div class="nav-tab" onclick="showTab('services')">AI Services</div>
+            <div class="nav-tab" onclick="showTab('professional')">Professional Networks</div>
+            <div class="nav-tab" onclick="showTab('validation')">Validation</div>
+            <div class="nav-tab" onclick="showTab('scoring')">Scoring</div>
         </div>
 
-        <div id="opportunities" class="tab-content active">
+        <div id="overview" class="tab-content active">
+            <div class="dashboard">
+                <div class="card">
+                    <h2>Core Framework Evolution</h2>
+                    <div class="expandable">
+                        <div class="expandable-header" onclick="toggleExpand(this)">
+                            <span class="expand-icon">▶</span>
+                            <strong>Information Arbitrage Pattern</strong>
+                        </div>
+                        <div class="expandable-content">
+                            <p><strong>Traditional:</strong> Human sees opportunity → Human acts</p>
+                            <p><strong>AI Model:</strong> AI sees opportunity → AI acts immediately</p>
+                            <p><strong>Value:</strong> Speed + Network Scale + Pattern Recognition</p>
+                        </div>
+                    </div>
+                    <div class="expandable">
+                        <div class="expandable-header" onclick="toggleExpand(this)">
+                            <span class="expand-icon">▶</span>
+                            <strong>4 Types of AI Arbitrage</strong>
+                        </div>
+                        <div class="expandable-content">
+                            <p><strong>1. Information Velocity:</strong> Act faster than humans process</p>
+                            <p><strong>2. Network Scale:</strong> Contact 1000+ vs human's ~10</p>
+                            <p><strong>3. Pattern Recognition:</strong> Spot opportunities humans miss</p>
+                            <p><strong>4. Attention Scale:</strong> Monitor everything simultaneously</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Liquidation Model Deep Dive</h2>
+                    <div class="expandable">
+                        <div class="expandable-header" onclick="toggleExpand(this)">
+                            <span class="expand-icon">▶</span>
+                            <strong>Information Flow</strong>
+                        </div>
+                        <div class="expandable-content">
+                            <p>1. <strong>Info appears:</strong> Facebook groups, forums</p>
+                            <p>2. <strong>AI processes:</strong> Extract, analyze, score opportunity</p>
+                            <p>3. <strong>Network activates:</strong> Contact buyer database</p>
+                            <p>4. <strong>Value captured:</strong> Speed + network premiums</p>
+                        </div>
+                    </div>
+                    <div class="expandable">
+                        <div class="expandable-header" onclick="toggleExpand(this)">
+                            <span class="expand-icon">▶</span>
+                            <strong>Market Size</strong>
+                        </div>
+                        <div class="expandable-content">
+                            <p><strong>Total:</strong> $100B+ liquidation market annually</p>
+                            <p><strong>Serviceable:</strong> ~$30B online-discoverable</p>
+                            <p><strong>Target:</strong> $225M revenue at 5% capture + 15% fee</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="arbitrage" class="tab-content">
             <div class="opportunities-grid">
                 <div class="opportunity-item" data-stage="validating" data-id="liquidation-arbitrage" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">Liquidation Arbitrage</div>
@@ -311,19 +463,19 @@
                     <div class="framework-scores">
                         <div class="framework-score">
                             <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
+                            <span class="score-value score-high">High</span>
                         </div>
                         <div class="framework-score">
                             <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
+                            <span class="score-value score-high">High</span>
                         </div>
                         <div class="framework-score">
                             <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
+                            <span class="score-value score-medium">Medium</span>
                         </div>
                         <div class="framework-score">
                             <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
+                            <span class="score-value score-medium">6-12 months</span>
                         </div>
                     </div>
                     <div class="stage-progression">
@@ -337,6 +489,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="researching" data-id="platform-pricing" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">Platform Pricing Arbitrage</div>
                     <div class="opportunity-description">Language/geographic price discrimination → Optimized bookings</div>
@@ -346,19 +499,19 @@
                     <div class="framework-scores">
                         <div class="framework-score">
                             <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
+                            <span class="score-value score-medium">Medium</span>
                         </div>
                         <div class="framework-score">
                             <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
+                            <span class="score-value score-high">High</span>
                         </div>
                         <div class="framework-score">
                             <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
+                            <span class="score-value score-low">Low</span>
                         </div>
                         <div class="framework-score">
                             <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
+                            <span class="score-value score-low">3-6 months</span>
                         </div>
                     </div>
                     <div class="stage-progression">
@@ -372,6 +525,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="researching" data-id="currency-conversion" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">Currency Conversion Arbitrage</div>
                     <div class="opportunity-description">Business payment inefficiencies → Optimized conversion</div>
@@ -407,6 +561,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="identified" data-id="real-estate-distress" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">Real Estate Distress</div>
                     <div class="opportunity-description">FSBO Facebook groups → Investor networks</div>
@@ -442,6 +597,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="identified" data-id="equipment-arbitrage" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">Equipment Arbitrage</div>
                     <div class="opportunity-description">Facebook Marketplace → Commercial buyers</div>
@@ -477,6 +633,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="identified" data-id="labor-talent-arbitrage" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">Labor/Talent Arbitrage</div>
                     <div class="opportunity-description">LinkedIn layoffs → Recruiting networks</div>
@@ -512,6 +669,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="identified" data-id="manufacturing-capacity" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">Manufacturing Capacity</div>
                     <div class="opportunity-description">Regional forums → Global brand networks</div>
@@ -547,6 +705,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="identified" data-id="ip-patent-arbitrage" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">IP/Patent Arbitrage</div>
                     <div class="opportunity-description">Patent databases → R&D teams</div>
@@ -582,6 +741,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="identified" data-id="bankruptcy-legal" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">Bankruptcy/Legal</div>
                     <div class="opportunity-description">Legal filings → Distressed asset investors</div>
@@ -617,6 +777,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="identified" data-id="agricultural-commodity" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">Agricultural/Commodity</div>
                     <div class="opportunity-description">Farmer forums → Processors/exporters</div>
@@ -652,6 +813,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div id="services" class="tab-content">
+            <div class="opportunities-grid">
                 <div class="opportunity-item" data-stage="validating" data-id="vc-pitch-deck-fact-checking" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">VC Pitch Deck Fact-Checking</div>
                     <div class="opportunity-description">AI verification → Manual DD replacement → Direct fees ($500-5K/deck)</div>
@@ -661,19 +827,19 @@
                     <div class="framework-scores">
                         <div class="framework-score">
                             <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
+                            <span class="score-value score-medium">Medium</span>
                         </div>
                         <div class="framework-score">
                             <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
+                            <span class="score-value score-medium">Medium</span>
                         </div>
                         <div class="framework-score">
                             <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
+                            <span class="score-value score-high">High</span>
                         </div>
                         <div class="framework-score">
                             <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
+                            <span class="score-value score-high">12+ months</span>
                         </div>
                     </div>
                     <div class="stage-progression">
@@ -687,6 +853,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="identified" data-id="osint-intelligence-processing" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">OSINT Intelligence Processing</div>
                     <div class="opportunity-description">Public data noise → AI-processed signals → Intelligence reports</div>
@@ -722,6 +889,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="identified" data-id="social-media-lead-processing" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">Social Media Lead Processing</div>
                     <div class="opportunity-description">Public social posts → AI-qualified leads → CRM integration</div>
@@ -757,6 +925,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div id="professional" class="tab-content">
+            <div class="opportunities-grid">
                 <div class="opportunity-item" data-stage="identified" data-id="ai-training-professionals" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">AI Training Professional Networks</div>
                     <div class="opportunity-description">Scale/Surge/Appen model: Global workforce → AI companies (OpenAI, Anthropic)</div>
@@ -792,6 +965,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="identified" data-id="localization-domain-experts" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">Localization Domain Expert Networks</div>
                     <div class="opportunity-description">Language + Domain expertise: German financial analysts → FinTech AI localization</div>
@@ -827,6 +1001,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="identified" data-id="regional-subject-matter-experts" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">Regional Subject Matter Expert Networks</div>
                     <div class="opportunity-description">Industry specialists in emerging markets → AI companies expanding globally</div>
@@ -862,6 +1037,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="opportunity-item" data-stage="identified" data-id="cultural-context-specialists" onclick="toggleStageProgression(this)">
                     <div class="opportunity-title">Cultural Context Specialist Networks</div>
                     <div class="opportunity-description">Local cultural experts → AI safety and alignment for global deployment</div>
@@ -900,104 +1076,103 @@
             </div>
         </div>
 
-        <div id="framework" class="tab-content">
-            <div class="framework-sections">
-                <div class="framework-section">
-                    <h3>Evaluation Criteria</h3>
-                    <p>How we score each opportunity across 4 key dimensions:</p>
-                    <div class="criteria-grid">
-                        <div class="criterion">
-                            <h4>Market Size</h4>
-                            <p>How much money is in play? Total addressable market and transaction volume.</p>
-                            <div class="criterion-example">Example: Liquidation = High ($2B+ distressed assets), Platform pricing = Medium (niche markets)</div>
-                        </div>
-                        <div class="criterion">
-                            <h4>Information Asymmetry</h4>
-                            <p>How big is the information gap we're exploiting? Stronger asymmetry = better arbitrage.</p>
-                            <div class="criterion-example">Example: FSBO groups = High (sellers don't know buyer networks), VC claims = Medium (verifiable but time-consuming)</div>
-                        </div>
-                        <div class="criterion">
-                            <h4>Technical Risk</h4>
-                            <p>How hard is this to build? Technical complexity and execution difficulty.</p>
-                            <div class="criterion-example">Example: Price monitoring = Low (web scraping), VC fact-checking = High (complex AI reasoning)</div>
-                        </div>
-                        <div class="criterion">
-                            <h4>Time to Market</h4>
-                            <p>How quickly can we validate and launch? Speed to revenue generation.</p>
-                            <div class="criterion-example">Example: Platform arbitrage = 3-6 months, Professional networks = 12+ months</div>
-                        </div>
+        <div id="validation" class="tab-content">
+            <div class="card validation-phases">
+                <h2>Validation Framework</h2>
+                <div class="phase" onclick="togglePhase(this)">
+                    <h3>Phase 1: Market Reality Check</h3>
+                    <div class="phase-questions">
+                        <div class="question">Do people actually negotiate these things?</div>
+                        <div class="question">Is there real money on the table?</div>
+                        <div class="question">Are current solutions inadequate?</div>
                     </div>
                 </div>
-
-                <div class="framework-section">
-                    <h3>Research Methodology</h3>
-                    <p>Our 6-stage research pipeline for validating opportunities:</p>
-                    <div class="criteria-grid">
-                        <div class="criterion">
-                            <h4>🔍 Identified</h4>
-                            <p>Initial idea spotted. Basic hypothesis documented.</p>
-                            <div class="criterion-example">Current: Real Estate Distress, AI Training Networks</div>
-                        </div>
-                        <div class="criterion">
-                            <h4>📊 Researching</h4>
-                            <p>Deep market research. Understanding size, players, dynamics.</p>
-                            <div class="criterion-example">Current: Platform Pricing (analyzing marketplace fragmentation)</div>
-                        </div>
-                        <div class="criterion">
-                            <h4>💬 Validating</h4>
-                            <p>Customer interviews. Validating assumptions and pain points.</p>
-                            <div class="criterion-example">Current: Liquidation (talking to buyers/sellers), VC Fact-checking (interviewing VCs)</div>
-                        </div>
-                        <div class="criterion">
-                            <h4>⚙️ Designing</h4>
-                            <p>Technical architecture and business model design.</p>
-                            <div class="criterion-example">Not yet reached this stage</div>
-                        </div>
-                        <div class="criterion">
-                            <h4>🧪 Testing</h4>
-                            <p>MVP or pilot with real users and transactions.</p>
-                            <div class="criterion-example">Not yet reached this stage</div>
-                        </div>
-                        <div class="criterion">
-                            <h4>✅ Proven</h4>
-                            <p>Validated business model ready for scaling.</p>
-                            <div class="criterion-example">Goal state for successful opportunities</div>
-                        </div>
+                <div class="phase" onclick="togglePhase(this)">
+                    <h3>Phase 2: Technical Feasibility</h3>
+                    <div class="phase-questions">
+                        <div class="question">Can we access the data needed for intelligent negotiation?</div>
+                        <div class="question">How standardized are the negotiation processes?</div>
+                        <div class="question">What legal/compliance constraints exist?</div>
                     </div>
                 </div>
-
-                <div class="framework-section">
-                    <h3>Arbitrage Patterns</h3>
-                    <p>The fundamental patterns we look for in information arbitrage:</p>
-                    <div class="criteria-grid">
-                        <div class="criterion">
-                            <h4>Speed Arbitrage</h4>
-                            <p>Acting faster than humans can process information.</p>
-                            <div class="criterion-example">Platform pricing alerts, liquidation notifications</div>
-                        </div>
-                        <div class="criterion">
-                            <h4>Scale Arbitrage</h4>
-                            <p>Network effects and reaching more parties simultaneously.</p>
-                            <div class="criterion-example">1 seller → 1000 buyers vs human's ~10</div>
-                        </div>
-                        <div class="criterion">
-                            <h4>Geographic Arbitrage</h4>
-                            <p>Exploiting location-based cost or access differences.</p>
-                            <div class="criterion-example">FSBO groups (local) → global buyer networks</div>
-                        </div>
-                        <div class="criterion">
-                            <h4>Expertise Arbitrage</h4>
-                            <p>Capturing value from specialized knowledge gaps.</p>
-                            <div class="criterion-example">German financial analysts → FinTech AI companies</div>
-                        </div>
+                <div class="phase" onclick="togglePhase(this)">
+                    <h3>Phase 3: Business Model Viability</h3>
+                    <div class="phase-questions">
+                        <div class="question">How do we reach decision-makers?</div>
+                        <div class="question">Customer acquisition cost vs. lifetime value?</div>
+                        <div class="question">What defensible advantages can we build?</div>
                     </div>
+                </div>
+                <div class="phase" onclick="togglePhase(this)">
+                    <h3>Phase 4: Scaling & Network Effects</h3>
+                    <div class="phase-questions">
+                        <div class="question">Does more usage create better outcomes?</div>
+                        <div class="question">Can we bring both buyers and sellers onto platform?</div>
+                        <div class="question">Winner-take-most dynamics potential?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="scoring" class="tab-content">
+            <div class="card scoring-matrix">
+                <h2>Market Scoring Matrix</h2>
+                <div class="matrix-grid">
+                    <div class="matrix-cell matrix-header"></div>
+                    <div class="matrix-cell matrix-header">Info Asymmetry</div>
+                    <div class="matrix-cell matrix-header">Temporal Diff</div>
+                    <div class="matrix-cell matrix-header">Spatial Diff</div>
+                    <div class="matrix-cell matrix-header">Preference Diff</div>
+                    <div class="matrix-cell matrix-header">Capability Diff</div>
+                    
+                    <div class="matrix-cell matrix-row-header">B2B SaaS</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    
+                    <div class="matrix-cell matrix-row-header">Insurance</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    
+                    <div class="matrix-cell matrix-row-header">Travel</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+
+                    <div class="matrix-cell matrix-row-header">Liquidation</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+
+                    <div class="matrix-cell matrix-row-header">Real Estate</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+
+                    <div class="matrix-cell matrix-row-header">Equipment</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        function showTab(tabName, clickedElement) {
+        function showTab(tabName) {
             // Hide all tab contents
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
@@ -1008,108 +1183,117 @@
             
             // Show selected tab
             document.getElementById(tabName).classList.add('active');
-            
-            // Activate clicked tab or find by name
-            if (clickedElement) {
-                clickedElement.classList.add('active');
-            } else {
-                // Fallback - find tab by text content
-                const targetTab = Array.from(document.querySelectorAll('.nav-tab')).find(tab => 
-                    tab.textContent.toLowerCase().includes(tabName.toLowerCase())
-                );
-                if (targetTab) {
-                    targetTab.classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function toggleExpand(element) {
+            const expandable = element.parentElement;
+            expandable.classList.toggle('active');
+        }
+
+        function togglePhase(element) {
+            // Close all phases first
+            const allPhases = document.querySelectorAll('.phase');
+            allPhases.forEach(phase => {
+                if (phase !== element) {
+                    phase.classList.remove('active');
                 }
-            }
+            });
             
-            // Hide any open stage progressions when switching tabs
-            const progressions = document.querySelectorAll('.stage-progression');
-            progressions.forEach(p => p.style.display = 'none');
+            // Toggle clicked phase
+            element.classList.toggle('active');
         }
 
         function toggleStageProgression(element) {
-            // Close all other progressions
+            // Close all other progressions first
             const allProgressions = document.querySelectorAll('.stage-progression');
-            allProgressions.forEach(p => {
-                if (p.parentNode !== element) {
-                    p.style.display = 'none';
+            allProgressions.forEach(prog => {
+                if (prog !== element.querySelector('.stage-progression')) {
+                    prog.style.display = 'none';
                 }
             });
             
-            // Toggle this one
+            // Toggle the clicked element's progression
             const progression = element.querySelector('.stage-progression');
-            progression.style.display = progression.style.display === 'block' ? 'none' : 'block';
+            if (progression.style.display === 'none' || !progression.style.display) {
+                progression.style.display = 'block';
+            } else {
+                progression.style.display = 'none';
+            }
         }
 
-        function changeStage(button, newStage, event) {
-            if (event) {
-                event.stopPropagation();
-            }
+        function changeStage(button, stage, event) {
+            event.stopPropagation();
             
             const item = button.closest('.opportunity-item');
-            const itemId = item.getAttribute('data-id');
+            const indicator = item.querySelector('.stage-indicator');
+            const buttons = item.querySelectorAll('.stage-btn');
+            
+            // Update data attribute
+            item.setAttribute('data-stage', stage);
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
             
             // Update stage indicator
-            const stageIndicator = item.querySelector('.stage-indicator');
             const stageMap = {
-                'identified': { emoji: '🔍', text: 'Identified', class: 'stage-identified' },
-                'researching': { emoji: '📊', text: 'Researching', class: 'stage-researching' },
-                'validating': { emoji: '💬', text: 'Validating', class: 'stage-validating' },
-                'designing': { emoji: '⚙️', text: 'Designing', class: 'stage-designing' },
-                'testing': { emoji: '🧪', text: 'Testing', class: 'stage-testing' },
-                'proven': { emoji: '✅', text: 'Proven', class: 'stage-proven' }
+                'identified': { text: '🔍 Identified', class: 'stage-identified' },
+                'researching': { text: '📊 Researching', class: 'stage-researching' },
+                'validating': { text: '💬 Validating', class: 'stage-validating' },
+                'designing': { text: '⚙️ Designing', class: 'stage-designing' },
+                'testing': { text: '🧪 Testing', class: 'stage-testing' },
+                'proven': { text: '✅ Proven', class: 'stage-proven' },
+                'paused': { text: '⏸️ Paused', class: 'stage-paused' },
+                'killed': { text: '❌ Killed', class: 'stage-killed' }
             };
             
-            const stage = stageMap[newStage];
-            if (stage) {
-                stageIndicator.textContent = `${stage.emoji} ${stage.text}`;
-                stageIndicator.className = `stage-indicator ${stage.class}`;
-                item.setAttribute('data-stage', newStage);
-                
-                // Update button states
-                const buttons = item.querySelectorAll('.stage-btn');
-                buttons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                
-                // Save to localStorage
-                saveStageChange(itemId, newStage);
-                
-                // Hide progression
-                item.querySelector('.stage-progression').style.display = 'none';
+            if (stageMap[stage]) {
+                indicator.textContent = stageMap[stage].text;
+                indicator.className = 'stage-indicator ' + stageMap[stage].class;
+            }
+            
+            // Save to localStorage
+            const itemId = item.getAttribute('data-id');
+            if (itemId) {
+                localStorage.setItem('stage_' + itemId, stage);
             }
         }
 
-        function saveStageChange(itemId, stage) {
-            let savedStages = JSON.parse(localStorage.getItem('opportunityStages') || '{}');
-            savedStages[itemId] = stage;
-            localStorage.setItem('opportunityStages', JSON.stringify(savedStages));
+        function updateScore(cell) {
+            const scores = ['?', 'Low', 'Med', 'High'];
+            const classes = ['', 'low', 'medium', 'high'];
+            
+            let currentIndex = scores.indexOf(cell.textContent);
+            let nextIndex = (currentIndex + 1) % scores.length;
+            
+            cell.textContent = scores[nextIndex];
+            cell.className = 'matrix-cell score-cell ' + classes[nextIndex];
         }
 
-        function loadSavedStages() {
-            let savedStages = JSON.parse(localStorage.getItem('opportunityStages') || '{}');
-            Object.entries(savedStages).forEach(([itemId, stage]) => {
-                const item = document.querySelector(`[data-id="${itemId}"]`);
-                if (item) {
-                    // Find button for the saved stage
-                    const targetButton = item.querySelector(`.stage-btn[onclick*="${stage}"]`);
-                    if (targetButton) {
-                        changeStage(targetButton, stage);
+        // Load saved stages from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.opportunity-item[data-id]');
+            items.forEach(item => {
+                const itemId = item.getAttribute('data-id');
+                const savedStage = localStorage.getItem('stage_' + itemId);
+                if (savedStage) {
+                    const button = item.querySelector(`[onclick*="${savedStage}"]`);
+                    if (button) {
+                        button.click();
                     }
                 }
             });
-        }
+        });
 
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            loadSavedStages();
-            
-            // Close progressions when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!event.target.closest('.opportunity-item')) {
-                    const progressions = document.querySelectorAll('.stage-progression');
-                    progressions.forEach(p => p.style.display = 'none');
-                }
-            });
+        // Close progressions when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.opportunity-item')) {
+                const progressions = document.querySelectorAll('.stage-progression');
+                progressions.forEach(prog => {
+                    prog.style.display = 'none';
+                });
+            }
         });
     </script>
 </body>

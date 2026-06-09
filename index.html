@@ -301,8 +301,8 @@
         </div>
 
         <div class="nav-tabs">
-            <div class="nav-tab active" onclick="showTab('opportunities')">Opportunities</div>
-            <div class="nav-tab" onclick="showTab('framework')">Framework</div>
+            <div class="nav-tab active" onclick="showTab('opportunities', this)">Opportunities</div>
+            <div class="nav-tab" onclick="showTab('framework', this)">Framework</div>
         </div>
 
         <div id="opportunities" class="tab-content active">
@@ -333,12 +333,12 @@
                     </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
-                            <div class="stage-btn" onclick="changeStage(this, 'identified')">🔍 Identified</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'researching')">📊 Researching</div>
-                            <div class="stage-btn active" onclick="changeStage(this, 'validating')">💬 Validating</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️ Designing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪 Testing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'proven')">✅ Proven</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
+                            <div class="stage-btn active" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
                         </div>
                     </div>
                 </div>
@@ -369,12 +369,12 @@
                     </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
-                            <div class="stage-btn" onclick="changeStage(this, 'identified')">🔍 Identified</div>
-                            <div class="stage-btn active" onclick="changeStage(this, 'researching')">📊 Researching</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'validating')">💬 Validating</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️ Designing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪 Testing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'proven')">✅ Proven</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
+                            <div class="stage-btn active" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
                         </div>
                     </div>
                 </div>
@@ -405,12 +405,12 @@
                     </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
-                            <div class="stage-btn" onclick="changeStage(this, 'identified')">🔍 Identified</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'researching')">📊 Researching</div>
-                            <div class="stage-btn active" onclick="changeStage(this, 'validating')">💬 Validating</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️ Designing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪 Testing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'proven')">✅ Proven</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
+                            <div class="stage-btn active" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
                         </div>
                     </div>
                 </div>
@@ -441,12 +441,12 @@
                     </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
-                            <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍 Identified</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'researching')">📊 Researching</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'validating')">💬 Validating</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️ Designing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪 Testing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'proven')">✅ Proven</div>
+                            <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
                         </div>
                     </div>
                 </div>
@@ -477,12 +477,12 @@
                     </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
-                            <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍 Identified</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'researching')">📊 Researching</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'validating')">💬 Validating</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️ Designing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪 Testing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'proven')">✅ Proven</div>
+                            <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
                         </div>
                     </div>
                 </div>
@@ -513,12 +513,12 @@
                     </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
-                            <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍 Identified</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'researching')">📊 Researching</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'validating')">💬 Validating</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️ Designing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪 Testing</div>
-                            <div class="stage-btn" onclick="changeStage(this, 'proven')">✅ Proven</div>
+                            <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
                         </div>
                     </div>
                 </div>
@@ -622,7 +622,7 @@
     </div>
 
     <script>
-        function showTab(tabName) {
+        function showTab(tabName, clickedElement) {
             // Hide all tab contents
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
@@ -633,7 +633,19 @@
             
             // Show selected tab
             document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
+            
+            // Activate clicked tab or find by name
+            if (clickedElement) {
+                clickedElement.classList.add('active');
+            } else {
+                // Fallback - find tab by text content
+                const targetTab = Array.from(document.querySelectorAll('.nav-tab')).find(tab => 
+                    tab.textContent.toLowerCase().includes(tabName.toLowerCase())
+                );
+                if (targetTab) {
+                    targetTab.classList.add('active');
+                }
+            }
             
             // Hide any open stage progressions when switching tabs
             const progressions = document.querySelectorAll('.stage-progression');
@@ -654,7 +666,11 @@
             progression.style.display = progression.style.display === 'block' ? 'none' : 'block';
         }
 
-        function changeStage(button, newStage) {
+        function changeStage(button, newStage, event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            
             const item = button.closest('.opportunity-item');
             const itemId = item.getAttribute('data-id');
             
@@ -686,8 +702,6 @@
                 // Hide progression
                 item.querySelector('.stage-progression').style.display = 'none';
             }
-            
-            event.stopPropagation();
         }
 
         function saveStageChange(itemId, stage) {
@@ -701,8 +715,8 @@
             Object.entries(savedStages).forEach(([itemId, stage]) => {
                 const item = document.querySelector(`[data-id="${itemId}"]`);
                 if (item) {
-                    // Trigger stage change to update UI
-                    const targetButton = item.querySelector(`[onclick*="${stage}"]`);
+                    // Find button for the saved stage
+                    const targetButton = item.querySelector(`.stage-btn[onclick*="${stage}"]`);
                     if (targetButton) {
                         changeStage(targetButton, stage);
                     }

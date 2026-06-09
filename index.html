@@ -400,15 +400,15 @@
                     <div class="expandable">
                         <div class="expandable-header" onclick="toggleExpand(this)">
                             <span class="expand-icon">▶</span>
-                            <strong>10 Opportunities Across 3 Categories</strong>
+                            <strong>11 Opportunities Across 3 Categories</strong>
                         </div>
                         <div class="expandable-content">
-                            <p><strong>Information Arbitrage:</strong> 3 opportunities - exploiting information asymmetries</p>
+                            <p><strong>Information Arbitrage:</strong> 6 opportunities - exploiting market inefficiencies</p>
                             <p><strong>AI Services:</strong> 3 opportunities - replacing manual processing with AI</p>
                             <p><strong>Professional Networks:</strong> 4 opportunities - connecting workforce with AI companies</p>
                             <br>
                             <p><strong>Stage Distribution:</strong></p>
-                            <p>🔍 Identified: 7 opportunities | 📊 Researching: 2 | 💬 Validating: 1</p>
+                            <p>🔍 Identified: 7 opportunities | 📊 Researching: 2 | 💬 Validating: 2</p>
                         </div>
                     </div>
                 </div>
@@ -554,6 +554,202 @@
                             <div class="stage-btn" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
                             <div class="stage-btn active" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
                             <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opportunity-item" data-stage="validating" data-id="conference-travel-infrastructure" onclick="toggleStageProgression(this)">
+                    <div class="opportunity-title">Conference Travel Infrastructure</div>
+                    <div class="opportunity-description">Conference booking APIs → Integrated hotel/travel packages</div>
+                    <div class="opportunity-meta">
+                        <span class="stage-indicator stage-validating">💬 Validating</span>
+                    </div>
+                    <div class="framework-scores">
+                        <div class="framework-score">
+                            <span>Market Size:</span>
+                            <span class="score-value score-high">$10B+ annually</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Info Asymmetry:</span>
+                            <span class="score-value score-high">High - fragmented booking systems</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Technical Risk:</span>
+                            <span class="score-value score-medium">Medium - complex integrations</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Time to Market:</span>
+                            <span class="score-value score-medium">6-12 months</span>
+                        </div>
+                    </div>
+                    <div class="expandable-details">
+                        <div class="expandable">
+                            <div class="expandable-header" onclick="toggleExpand(this)">
+                                <span class="expand-icon">▶</span>
+                                <strong>Market Evolution: From Travel Agent to Conference Infrastructure</strong>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>The Full Market Evolution:</strong></p>
+                                <p><strong>Phase 1: Corporate Travel Agent</strong><br>
+                                Individual tech companies pay for optimized conference travel management. Handle booking optimization, expense coordination, policy compliance for 5-15 employees attending 10-20 conferences annually.</p>
+                                
+                                <p><strong>Phase 2: Multi-Company Coordinator</strong><br>
+                                Coordinate group bookings across multiple companies attending same conferences. Negotiate hotel blocks for Token2049, Ethereum Denver, etc. Companies get better rates through volume aggregation.</p>
+                                
+                                <p><strong>Phase 3: Conference Ecosystem Partner</strong><br>
+                                Direct partnerships with conferences to offer integrated travel packages. Similar to festival glamping model - conferences offer premium tickets that include hotel + transport coordination for 3-4x revenue per attendee.</p>
+                                
+                                <p><strong>Phase 4: Conference Infrastructure Platform</strong><br>
+                                "Stripe for Conference Travel" - API/integration that any conference can plug in to offer hotel booking during registration. Handle all the operational complexity (traveler IDs, payments, inventory) while conferences focus on events.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="expandable">
+                            <div class="expandable-header" onclick="toggleExpand(this)">
+                                <span class="expand-icon">▶</span>
+                                <strong>Why This is a "Next Agent Market"</strong>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>Perfect Agent Market Characteristics:</strong></p>
+                                <p><strong>✅ Highly Standardizable:</strong><br>
+                                • Conference APIs (Eventbrite, custom platforms)<br>
+                                • Travel APIs (flights, hotels, ground transport)<br>
+                                • Expense system APIs (Concur, Expensify)<br>
+                                • Calendar integrations (Google, Outlook)</p>
+                                
+                                <p><strong>✅ Systematizable Decision Logic:</strong><br>
+                                • Company travel policies (approval workflows, spending limits)<br>
+                                • Conference selection criteria (relevance scoring, ROI tracking)<br>
+                                • Optimization algorithms (group rates, route efficiency)<br>
+                                • Multi-conference coordination (team allocation, circuit planning)</p>
+                                
+                                <p><strong>✅ Verifiable Outcomes:</strong><br>
+                                • Booking confirmations and travel receipts<br>
+                                • Conference attendance verification<br>
+                                • Lead generation and ROI measurement<br>
+                                • Policy compliance and expense processing</p>
+                                
+                                <p><strong>✅ Encodable Domain Knowledge:</strong><br>
+                                • Tech conference landscape (which events matter for which roles)<br>
+                                • Travel optimization patterns (seasonal pricing, conference circuits)<br>
+                                • Company-specific policies and approval workflows<br>
+                                • Team coordination logic and networking optimization</p>
+                            </div>
+                        </div>
+                        
+                        <div class="expandable">
+                            <div class="expandable-header" onclick="toggleExpand(this)">
+                                <span class="expand-icon">▶</span>
+                                <strong>Current Market Gap & Business Model</strong>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>Existing Solutions Are Fragmented:</strong></p>
+                                <p>• <strong>Concur/Expensify:</strong> Handle expenses after travel<br>
+                                • <strong>Corporate travel platforms:</strong> Generic business travel, not conference-optimized<br>
+                                • <strong>Event platforms (Cvent):</strong> Handle the event, not the travel<br>
+                                • <strong>Group travel:</strong> One-off bookings, no systematic optimization</p>
+                                
+                                <p><strong>Market Size:</strong><br>
+                                • Tech companies spend $2-5K per employee per conference<br>
+                                • Average mid-size tech company: 10-50 people, 15-30 conferences annually<br>
+                                • Total addressable per company: $300K-7.5M annually<br>
+                                • Current solutions capture ~20% of workflow value</p>
+                                
+                                <p><strong>Revenue Model Evolution:</strong><br>
+                                • <strong>Phase 1:</strong> Service fees ($50K-200K per company annually)<br>
+                                • <strong>Phase 2:</strong> Transaction fees on group bookings (3-5%)<br>
+                                • <strong>Phase 3:</strong> Revenue share with conferences (30-50% of package premium)<br>
+                                • <strong>Phase 4:</strong> SaaS + transaction fees ($10K setup + 3-5% transaction fees)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="expandable">
+                            <div class="expandable-header" onclick="toggleExpand(this)">
+                                <span class="expand-icon">▶</span>
+                                <strong>Conference Integration API - The Key Innovation</strong>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>The Friction Point Conferences Face:</strong><br>
+                                Conferences want to offer hotel packages but can't handle the operational complexity:<br>
+                                • Identity collection (passport info, visa requirements)<br>
+                                • Payment processing (corporate cards, multiple currencies)<br>
+                                • Inventory management (hotel allocation, overbooking risk)<br>
+                                • Customer service (travel changes, cancellations)<br>
+                                • Integration complexity (conference + hotel + payment systems)</p>
+                                
+                                <p><strong>Your API Solution:</strong><br>
+                                One API call enables any conference to add hotel booking to their registration flow:</p>
+                                
+                                <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 10px 0; font-family: monospace;">
+TokenConference.addHotelPackage({<br>
+&nbsp;&nbsp;hotelOptions: ['Marina Bay Sands', 'Raffles'],<br>
+&nbsp;&nbsp;dates: ['2024-09-18', '2024-09-21'],<br>
+&nbsp;&nbsp;pricing: 'conference_negotiated_rates',<br>
+&nbsp;&nbsp;collect_traveler_info: true<br>
+});
+                                </div>
+                                
+                                <p><strong>What You Handle (The Hard Parts):</strong><br>
+                                • Traveler identity collection and verification<br>
+                                • Real-time hotel inventory management<br>
+                                • Payment processing across corporate/personal accounts<br>
+                                • Group rate negotiations and allocations<br>
+                                • Customer service for all travel-related issues<br>
+                                • Compliance (data privacy, travel regulations)</p>
+                                
+                                <p><strong>Festival Glamping Model Applied:</strong><br>
+                                <strong>Current:</strong> Conference ticket $500<br>
+                                <strong>Package:</strong> Conference + hotel + transport $2500<br>
+                                <strong>Conference gets:</strong> 5x revenue per premium attendee<br>
+                                <strong>You get:</strong> 30-50% of the package premium + operational fees</p>
+                            </div>
+                        </div>
+                        
+                        <div class="expandable">
+                            <div class="expandable-header" onclick="toggleExpand(this)">
+                                <span class="expand-icon">▶</span>
+                                <strong>Go-to-Market Strategy</strong>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>Step 1: Prove Concept (3-6 months)</strong><br>
+                                • Target Token2049 Singapore or similar crypto conference<br>
+                                • Manual coordination for 50-100 tech companies<br>
+                                • Negotiate group rates at Marina Bay Sands cluster<br>
+                                • Demonstrate cost savings + convenience value</p>
+                                
+                                <p><strong>Step 2: Build API Platform (6-12 months)</strong><br>
+                                • Develop conference integration API<br>
+                                • Create hotel inventory management system<br>
+                                • Build payment processing + traveler data collection<br>
+                                • Pilot with 2-3 conferences</p>
+                                
+                                <p><strong>Step 3: Scale to Conference Platforms</strong><br>
+                                • Integration partnerships with Eventbrite, Cvent<br>
+                                • White-label solution for conference organizers<br>
+                                • Network effects: more conferences = better hotel rates</p>
+                                
+                                <p><strong>Step 4: Become Default Infrastructure</strong><br>
+                                • "Stripe for Conference Travel" positioning<br>
+                                • Every major B2B conference uses your system<br>
+                                • Hotel/venue preferred partnerships through volume<br>
+                                • Agent-to-agent optimizations across entire ecosystem</p>
+                                
+                                <p><strong>Key Partnership Targets:</strong><br>
+                                • <strong>Crypto:</strong> Token2049, Ethereum Denver, Consensus<br>
+                                • <strong>Tech:</strong> Web Summit, TechCrunch Disrupt, AWS re:Invent<br>
+                                • <strong>AI/ML:</strong> NeurIPS, ICLR, AI Conference<br>
+                                • <strong>Platforms:</strong> Eventbrite, Cvent, custom conference platforms</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage-progression">
+                        <div class="stage-buttons">
+                            <div class="stage-btn" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
+                            <div class="stage-btn active" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
                             <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
                             <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
                             <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>

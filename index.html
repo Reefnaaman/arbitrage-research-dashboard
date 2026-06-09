@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Negotiation Research Hub</title>
+    <title>J&R Research Hub</title>
     <style>
         * {
             margin: 0;
@@ -19,85 +19,712 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             padding: 20px 0;
             border-bottom: 1px solid #e2e8f0;
         }
 
         .header h1 {
-            font-size: 2.5em;
+            font-size: 2.2em;
             font-weight: 700;
             color: #1a202c;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .header p {
-            font-size: 1.1em;
+            font-size: 1em;
             color: #718096;
         }
 
-        .dashboard {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+            color: #718096;
+            transition: all 0.2s ease;
+        }
+
+        .nav-tab:hover {
+            color: #4299e1;
+        }
+
+        .nav-tab.active {
+            color: #4299e1;
+            border-bottom-color: #4299e1;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
         }
 
         .card {
             background: white;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             border: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
-        }
-
-        .card:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
+            margin-bottom: 20px;
         }
 
         .card h2 {
-            font-size: 1.4em;
+            font-size: 1.3em;
             margin-bottom: 16px;
             color: #2d3748;
             border-bottom: 2px solid #4299e1;
             padding-bottom: 8px;
         }
 
-        .validation-phases {
-            grid-column: 1 / -1;
+        /* Opportunities Styles */
+        .opportunities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
         }
 
-        .phase {
-            margin-bottom: 20px;
-            border-left: 4px solid #e2e8f0;
-            padding-left: 16px;
-            cursor: pointer;
-        }
-
-        .phase.active {
-            border-left-color: #4299e1;
-            background: #f7fafc;
-            padding: 12px 16px;
+        .opportunity-item {
+            background: white;
             border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
         }
 
-        .phase h3 {
-            font-size: 1.2em;
-            margin-bottom: 8px;
+        .opportunity-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-1px);
+        }
+
+        .opportunity-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .opportunity-title {
+            font-weight: 600;
+            font-size: 1.1em;
             color: #2d3748;
+            margin-bottom: 8px;
         }
 
-        .phase-questions {
+        .opportunity-description {
+            color: #4a5568;
+            font-size: 0.95em;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .opportunity-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .stage-indicator {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .stage-identified { background: #e2e8f0; color: #2d3748; }
+        .stage-researching { background: #bee3f8; color: #2b6cb0; }
+        .stage-validating { background: #fed7aa; color: #c05621; }
+        .stage-designing { background: #e9d8fd; color: #6b46c1; }
+        .stage-testing { background: #faf089; color: #975a16; }
+        .stage-proven { background: #9ae6b4; color: #276749; }
+        .stage-paused { background: #cbd5e0; color: #4a5568; }
+        .stage-killed { background: #fed7d7; color: #c53030; }
+
+        .framework-scores {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .framework-score {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85em;
+        }
+
+        .score-value {
+            font-weight: 600;
+        }
+
+        .score-high { color: #38a169; }
+        .score-medium { color: #d69e2e; }
+        .score-low { color: #e53e3e; }
+        .score-unknown { color: #718096; }
+
+        .stage-progression {
             display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 12px;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .stage-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .stage-btn {
+            padding: 6px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: all 0.2s ease;
+        }
+
+        .stage-btn:hover {
+            background: #f7fafc;
+        }
+
+        .stage-btn.active {
+            background: #4299e1;
+            color: white;
+            border-color: #4299e1;
+        }
+
+        /* Framework Styles */
+        .framework-sections {
+            display: grid;
+            gap: 24px;
+        }
+
+        .framework-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .framework-section h3 {
+            font-size: 1.1em;
+            color: #2d3748;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .criterion {
+            padding: 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: #f7fafc;
+        }
+
+        .criterion h4 {
+            font-size: 1em;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .criterion p {
+            font-size: 0.9em;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+
+        .criterion-example {
+            font-size: 0.85em;
+            color: #718096;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .opportunities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .criteria-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .framework-scores {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>J&R Research Hub</h1>
+            <p>Information arbitrage research and validation</p>
+        </div>
+
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="showTab('opportunities')">Opportunities</div>
+            <div class="nav-tab" onclick="showTab('framework')">Framework</div>
+        </div>
+
+        <div id="opportunities" class="tab-content active">
+            <div class="opportunities-grid">
+                <div class="opportunity-item" data-stage="validating" data-id="liquidation-arbitrage" onclick="toggleStageProgression(this)">
+                    <div class="opportunity-title">Liquidation Arbitrage</div>
+                    <div class="opportunity-description">FSBO Facebook groups → Global buyer network. Speed + network scale premium on distressed assets.</div>
+                    <div class="opportunity-meta">
+                        <span class="stage-indicator stage-validating">💬 Validating</span>
+                    </div>
+                    <div class="framework-scores">
+                        <div class="framework-score">
+                            <span>Market Size:</span>
+                            <span class="score-value score-high">High</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Info Asymmetry:</span>
+                            <span class="score-value score-high">High</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Technical Risk:</span>
+                            <span class="score-value score-medium">Medium</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Time to Market:</span>
+                            <span class="score-value score-medium">6-12 months</span>
+                        </div>
+                    </div>
+                    <div class="stage-progression">
+                        <div class="stage-buttons">
+                            <div class="stage-btn" onclick="changeStage(this, 'identified')">🔍 Identified</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'researching')">📊 Researching</div>
+                            <div class="stage-btn active" onclick="changeStage(this, 'validating')">💬 Validating</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️ Designing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪 Testing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'proven')">✅ Proven</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opportunity-item" data-stage="researching" data-id="platform-pricing-arbitrage" onclick="toggleStageProgression(this)">
+                    <div class="opportunity-title">Platform Pricing Arbitrage</div>
+                    <div class="opportunity-description">Multi-platform price monitoring. Alert buyers when deals appear across fragmented marketplaces.</div>
+                    <div class="opportunity-meta">
+                        <span class="stage-indicator stage-researching">📊 Researching</span>
+                    </div>
+                    <div class="framework-scores">
+                        <div class="framework-score">
+                            <span>Market Size:</span>
+                            <span class="score-value score-medium">Medium</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Info Asymmetry:</span>
+                            <span class="score-value score-high">High</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Technical Risk:</span>
+                            <span class="score-value score-low">Low</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Time to Market:</span>
+                            <span class="score-value score-low">3-6 months</span>
+                        </div>
+                    </div>
+                    <div class="stage-progression">
+                        <div class="stage-buttons">
+                            <div class="stage-btn" onclick="changeStage(this, 'identified')">🔍 Identified</div>
+                            <div class="stage-btn active" onclick="changeStage(this, 'researching')">📊 Researching</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'validating')">💬 Validating</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️ Designing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪 Testing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'proven')">✅ Proven</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opportunity-item" data-stage="validating" data-id="vc-fact-checking" onclick="toggleStageProgression(this)">
+                    <div class="opportunity-title">VC Pitch Deck Fact-Checking</div>
+                    <div class="opportunity-description">AI verification of startup claims in pitch decks. Reduce VC due diligence time and risk.</div>
+                    <div class="opportunity-meta">
+                        <span class="stage-indicator stage-validating">💬 Validating</span>
+                    </div>
+                    <div class="framework-scores">
+                        <div class="framework-score">
+                            <span>Market Size:</span>
+                            <span class="score-value score-medium">Medium</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Info Asymmetry:</span>
+                            <span class="score-value score-medium">Medium</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Technical Risk:</span>
+                            <span class="score-value score-high">High</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Time to Market:</span>
+                            <span class="score-value score-high">12+ months</span>
+                        </div>
+                    </div>
+                    <div class="stage-progression">
+                        <div class="stage-buttons">
+                            <div class="stage-btn" onclick="changeStage(this, 'identified')">🔍 Identified</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'researching')">📊 Researching</div>
+                            <div class="stage-btn active" onclick="changeStage(this, 'validating')">💬 Validating</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️ Designing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪 Testing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'proven')">✅ Proven</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opportunity-item" data-stage="identified" data-id="localization-domain-experts" onclick="toggleStageProgression(this)">
+                    <div class="opportunity-title">Localization Domain Expert Networks</div>
+                    <div class="opportunity-description">German financial analysts → FinTech AI localization. Language + domain expertise arbitrage.</div>
+                    <div class="opportunity-meta">
+                        <span class="stage-indicator stage-identified">🔍 Identified</span>
+                    </div>
+                    <div class="framework-scores">
+                        <div class="framework-score">
+                            <span>Market Size:</span>
+                            <span class="score-value score-unknown">TBD</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Info Asymmetry:</span>
+                            <span class="score-value score-unknown">TBD</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Technical Risk:</span>
+                            <span class="score-value score-unknown">TBD</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Time to Market:</span>
+                            <span class="score-value score-unknown">TBD</span>
+                        </div>
+                    </div>
+                    <div class="stage-progression">
+                        <div class="stage-buttons">
+                            <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍 Identified</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'researching')">📊 Researching</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'validating')">💬 Validating</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️ Designing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪 Testing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'proven')">✅ Proven</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opportunity-item" data-stage="identified" data-id="real-estate-distress" onclick="toggleStageProgression(this)">
+                    <div class="opportunity-title">Real Estate Distress</div>
+                    <div class="opportunity-description">FSBO Facebook groups → Cash buyer networks. Geographic + timing arbitrage.</div>
+                    <div class="opportunity-meta">
+                        <span class="stage-indicator stage-identified">🔍 Identified</span>
+                    </div>
+                    <div class="framework-scores">
+                        <div class="framework-score">
+                            <span>Market Size:</span>
+                            <span class="score-value score-unknown">TBD</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Info Asymmetry:</span>
+                            <span class="score-value score-unknown">TBD</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Technical Risk:</span>
+                            <span class="score-value score-unknown">TBD</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Time to Market:</span>
+                            <span class="score-value score-unknown">TBD</span>
+                        </div>
+                    </div>
+                    <div class="stage-progression">
+                        <div class="stage-buttons">
+                            <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍 Identified</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'researching')">📊 Researching</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'validating')">💬 Validating</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️ Designing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪 Testing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'proven')">✅ Proven</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opportunity-item" data-stage="identified" data-id="ai-training-professionals" onclick="toggleStageProgression(this)">
+                    <div class="opportunity-title">AI Training Professional Networks</div>
+                    <div class="opportunity-description">Scale/Surge/Appen model: Global workforce → AI companies (OpenAI, Anthropic).</div>
+                    <div class="opportunity-meta">
+                        <span class="stage-indicator stage-identified">🔍 Identified</span>
+                    </div>
+                    <div class="framework-scores">
+                        <div class="framework-score">
+                            <span>Market Size:</span>
+                            <span class="score-value score-unknown">TBD</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Info Asymmetry:</span>
+                            <span class="score-value score-unknown">TBD</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Technical Risk:</span>
+                            <span class="score-value score-unknown">TBD</span>
+                        </div>
+                        <div class="framework-score">
+                            <span>Time to Market:</span>
+                            <span class="score-value score-unknown">TBD</span>
+                        </div>
+                    </div>
+                    <div class="stage-progression">
+                        <div class="stage-buttons">
+                            <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍 Identified</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'researching')">📊 Researching</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'validating')">💬 Validating</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️ Designing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪 Testing</div>
+                            <div class="stage-btn" onclick="changeStage(this, 'proven')">✅ Proven</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="framework" class="tab-content">
+            <div class="framework-sections">
+                <div class="framework-section">
+                    <h3>Evaluation Criteria</h3>
+                    <p>How we score each opportunity across 4 key dimensions:</p>
+                    <div class="criteria-grid">
+                        <div class="criterion">
+                            <h4>Market Size</h4>
+                            <p>How much money is in play? Total addressable market and transaction volume.</p>
+                            <div class="criterion-example">Example: Liquidation = High ($2B+ distressed assets), Platform pricing = Medium (niche markets)</div>
+                        </div>
+                        <div class="criterion">
+                            <h4>Information Asymmetry</h4>
+                            <p>How big is the information gap we're exploiting? Stronger asymmetry = better arbitrage.</p>
+                            <div class="criterion-example">Example: FSBO groups = High (sellers don't know buyer networks), VC claims = Medium (verifiable but time-consuming)</div>
+                        </div>
+                        <div class="criterion">
+                            <h4>Technical Risk</h4>
+                            <p>How hard is this to build? Technical complexity and execution difficulty.</p>
+                            <div class="criterion-example">Example: Price monitoring = Low (web scraping), VC fact-checking = High (complex AI reasoning)</div>
+                        </div>
+                        <div class="criterion">
+                            <h4>Time to Market</h4>
+                            <p>How quickly can we validate and launch? Speed to revenue generation.</p>
+                            <div class="criterion-example">Example: Platform arbitrage = 3-6 months, Professional networks = 12+ months</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="framework-section">
+                    <h3>Research Methodology</h3>
+                    <p>Our 6-stage research pipeline for validating opportunities:</p>
+                    <div class="criteria-grid">
+                        <div class="criterion">
+                            <h4>🔍 Identified</h4>
+                            <p>Initial idea spotted. Basic hypothesis documented.</p>
+                            <div class="criterion-example">Current: Real Estate Distress, AI Training Networks</div>
+                        </div>
+                        <div class="criterion">
+                            <h4>📊 Researching</h4>
+                            <p>Deep market research. Understanding size, players, dynamics.</p>
+                            <div class="criterion-example">Current: Platform Pricing (analyzing marketplace fragmentation)</div>
+                        </div>
+                        <div class="criterion">
+                            <h4>💬 Validating</h4>
+                            <p>Customer interviews. Validating assumptions and pain points.</p>
+                            <div class="criterion-example">Current: Liquidation (talking to buyers/sellers), VC Fact-checking (interviewing VCs)</div>
+                        </div>
+                        <div class="criterion">
+                            <h4>⚙️ Designing</h4>
+                            <p>Technical architecture and business model design.</p>
+                            <div class="criterion-example">Not yet reached this stage</div>
+                        </div>
+                        <div class="criterion">
+                            <h4>🧪 Testing</h4>
+                            <p>MVP or pilot with real users and transactions.</p>
+                            <div class="criterion-example">Not yet reached this stage</div>
+                        </div>
+                        <div class="criterion">
+                            <h4>✅ Proven</h4>
+                            <p>Validated business model ready for scaling.</p>
+                            <div class="criterion-example">Goal state for successful opportunities</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="framework-section">
+                    <h3>Arbitrage Patterns</h3>
+                    <p>The fundamental patterns we look for in information arbitrage:</p>
+                    <div class="criteria-grid">
+                        <div class="criterion">
+                            <h4>Speed Arbitrage</h4>
+                            <p>Acting faster than humans can process information.</p>
+                            <div class="criterion-example">Platform pricing alerts, liquidation notifications</div>
+                        </div>
+                        <div class="criterion">
+                            <h4>Scale Arbitrage</h4>
+                            <p>Network effects and reaching more parties simultaneously.</p>
+                            <div class="criterion-example">1 seller → 1000 buyers vs human's ~10</div>
+                        </div>
+                        <div class="criterion">
+                            <h4>Geographic Arbitrage</h4>
+                            <p>Exploiting location-based cost or access differences.</p>
+                            <div class="criterion-example">FSBO groups (local) → global buyer networks</div>
+                        </div>
+                        <div class="criterion">
+                            <h4>Expertise Arbitrage</h4>
+                            <p>Capturing value from specialized knowledge gaps.</p>
+                            <div class="criterion-example">German financial analysts → FinTech AI companies</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Hide all tab buttons
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            // Hide any open stage progressions when switching tabs
+            const progressions = document.querySelectorAll('.stage-progression');
+            progressions.forEach(p => p.style.display = 'none');
+        }
+
+        function toggleStageProgression(element) {
+            // Close all other progressions
+            const allProgressions = document.querySelectorAll('.stage-progression');
+            allProgressions.forEach(p => {
+                if (p.parentNode !== element) {
+                    p.style.display = 'none';
+                }
+            });
+            
+            // Toggle this one
+            const progression = element.querySelector('.stage-progression');
+            progression.style.display = progression.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function changeStage(button, newStage) {
+            const item = button.closest('.opportunity-item');
+            const itemId = item.getAttribute('data-id');
+            
+            // Update stage indicator
+            const stageIndicator = item.querySelector('.stage-indicator');
+            const stageMap = {
+                'identified': { emoji: '🔍', text: 'Identified', class: 'stage-identified' },
+                'researching': { emoji: '📊', text: 'Researching', class: 'stage-researching' },
+                'validating': { emoji: '💬', text: 'Validating', class: 'stage-validating' },
+                'designing': { emoji: '⚙️', text: 'Designing', class: 'stage-designing' },
+                'testing': { emoji: '🧪', text: 'Testing', class: 'stage-testing' },
+                'proven': { emoji: '✅', text: 'Proven', class: 'stage-proven' }
+            };
+            
+            const stage = stageMap[newStage];
+            if (stage) {
+                stageIndicator.textContent = `${stage.emoji} ${stage.text}`;
+                stageIndicator.className = `stage-indicator ${stage.class}`;
+                item.setAttribute('data-stage', newStage);
+                
+                // Update button states
+                const buttons = item.querySelectorAll('.stage-btn');
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Save to localStorage
+                saveStageChange(itemId, newStage);
+                
+                // Hide progression
+                item.querySelector('.stage-progression').style.display = 'none';
+            }
+            
+            event.stopPropagation();
+        }
+
+        function saveStageChange(itemId, stage) {
+            let savedStages = JSON.parse(localStorage.getItem('opportunityStages') || '{}');
+            savedStages[itemId] = stage;
+            localStorage.setItem('opportunityStages', JSON.stringify(savedStages));
+        }
+
+        function loadSavedStages() {
+            let savedStages = JSON.parse(localStorage.getItem('opportunityStages') || '{}');
+            Object.entries(savedStages).forEach(([itemId, stage]) => {
+                const item = document.querySelector(`[data-id="${itemId}"]`);
+                if (item) {
+                    // Trigger stage change to update UI
+                    const targetButton = item.querySelector(`[onclick*="${stage}"]`);
+                    if (targetButton) {
+                        changeStage(targetButton, stage);
+                    }
+                }
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSavedStages();
+            
+            // Close progressions when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.opportunity-item')) {
+                    const progressions = document.querySelectorAll('.stage-progression');
+                    progressions.forEach(p => p.style.display = 'none');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
             margin-top: 12px;
         }
 

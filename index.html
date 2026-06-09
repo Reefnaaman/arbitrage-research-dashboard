@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Negotiation Research Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #fafafa;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            color: #718096;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .card h2 {
+            font-size: 1.4em;
+            margin-bottom: 16px;
+            color: #2d3748;
+            border-bottom: 2px solid #4299e1;
+            padding-bottom: 8px;
+        }
+
+        .validation-phases {
+            grid-column: 1 / -1;
+        }
+
+        .phase {
+            margin-bottom: 20px;
+            border-left: 4px solid #e2e8f0;
+            padding-left: 16px;
+            cursor: pointer;
+        }
+
+        .phase.active {
+            border-left-color: #4299e1;
+            background: #f7fafc;
+            padding: 12px 16px;
+            border-radius: 8px;
+        }
+
+        .phase h3 {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #2d3748;
+        }
+
+        .phase-questions {
+            display: none;
+            margin-top: 12px;
+        }
+
+        .phase.active .phase-questions {
+            display: block;
+        }
+
+        .question {
+            background: white;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border-left: 3px solid #e2e8f0;
+            font-size: 0.95em;
+        }
+
+        .research-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .research-item {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+        }
+
+        .research-item h4 {
+            color: #2d3748;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .research-item p {
+            font-size: 0.9em;
+            color: #718096;
+            margin-bottom: 12px;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .delete-btn {
+            background: #fed7d7;
+            color: #c53030;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 0.7em;
+            cursor: pointer;
+            margin-left: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .delete-btn:hover {
+            background: #fc8181;
+            color: white;
+        }
+
+        .status-not-started { background: #fed7d7; color: #c53030; }
+        .status-in-progress { background: #feebc8; color: #dd6b20; }
+        .status-completed { background: #c6f6d5; color: #38a169; }
+
+        .scoring-matrix {
+            grid-column: 1 / -1;
+            margin-top: 30px;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 200px repeat(5, 1fr);
+            gap: 1px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .matrix-cell {
+            background: white;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .matrix-header {
+            background: #f7fafc;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .matrix-row-header {
+            background: #f7fafc;
+            font-weight: 600;
+            text-align: left;
+            color: #2d3748;
+        }
+
+        .score-cell {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .score-cell:hover {
+            background: #edf2f7;
+        }
+
+        .nav-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+            color: #718096;
+            transition: all 0.2s ease;
+        }
+
+        .nav-tab.active {
+            color: #4299e1;
+            border-bottom-color: #4299e1;
+        }
+
+        .nav-tab:hover {
+            color: #2d3748;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .expandable {
+            margin-bottom: 16px;
+        }
+
+        .expandable-header {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: #f7fafc;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .expandable-header:hover {
+            background: #edf2f7;
+        }
+
+        .expand-icon {
+            margin-right: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .expandable.expanded .expand-icon {
+            transform: rotate(90deg);
+        }
+
+        .expandable-content {
+            display: none;
+            padding: 16px 12px;
+            border-left: 3px solid #e2e8f0;
+            margin-left: 12px;
+        }
+
+        .expandable.expanded .expandable-content {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .matrix-grid {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI Information Arbitrage Research Hub</h1>
+            <p>Systematic analysis of automated market-making opportunities</p>
+        </div>
+
+        <div class="nav-tabs">
+        <div class="nav-tab active" onclick="showTab('overview')">Overview</div>
+        <div class="nav-tab" onclick="showTab('arbitrage')">Arbitrage Patterns</div>
+        <div class="nav-tab" onclick="showTab('models')">Business Models</div>
+        <div class="nav-tab" onclick="showTab('validation')">Validation</div>
+        <div class="nav-tab" onclick="showTab('scoring')">Scoring</div>
+        </div>
+
+        <div id="overview" class="tab-content active">
+            <div class="dashboard">
+                <div class="card">
+                    <h2>Core Framework Evolution</h2>
+                    <div class="expandable">
+                        <div class="expandable-header" onclick="toggleExpand(this)">
+                            <span class="expand-icon">▶</span>
+                            <strong>Information Arbitrage Pattern</strong>
+                        </div>
+                        <div class="expandable-content">
+                            <p><strong>Traditional:</strong> Human sees opportunity → Human acts</p>
+                            <p><strong>AI Model:</strong> AI sees opportunity → AI acts immediately</p>
+                            <p><strong>Value:</strong> Speed + Network Scale + Pattern Recognition</p>
+                        </div>
+                    </div>
+                    <div class="expandable">
+                        <div class="expandable-header" onclick="toggleExpand(this)">
+                            <span class="expand-icon">▶</span>
+                            <strong>4 Types of AI Arbitrage</strong>
+                        </div>
+                        <div class="expandable-content">
+                            <p><strong>1. Information Velocity:</strong> Act faster than humans process</p>
+                            <p><strong>2. Network Scale:</strong> Contact 1000+ vs human's ~10</p>
+                            <p><strong>3. Pattern Recognition:</strong> Spot opportunities humans miss</p>
+                            <p><strong>4. Attention Scale:</strong> Monitor everything simultaneously</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Liquidation Model Deep Dive</h2>
+                    <div class="expandable">
+                        <div class="expandable-header" onclick="toggleExpand(this)">
+                            <span class="expand-icon">▶</span>
+                            <strong>Information Flow</strong>
+                        </div>
+                        <div class="expandable-content">
+                            <p>1. <strong>Info appears:</strong> Facebook groups, forums</p>
+                            <p>2. <strong>AI processes:</strong> Extract, analyze, score opportunity</p>
+                            <p>3. <strong>Network activates:</strong> Contact buyer database</p>
+                            <p>4. <strong>Value captured:</strong> Speed + network premiums</p>
+                        </div>
+                    </div>
+                    <div class="expandable">
+                        <div class="expandable-header" onclick="toggleExpand(this)">
+                            <span class="expand-icon">▶</span>
+                            <strong>Market Size</strong>
+                        </div>
+                        <div class="expandable-content">
+                            <p><strong>Total:</strong> $100B+ liquidation market annually</p>
+                            <p><strong>Serviceable:</strong> ~$30B online-discoverable</p>
+                            <p><strong>Target:</strong> $225M revenue at 5% capture + 15% fee</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="arbitrage" class="tab-content">
+            <div class="card">
+                <h2>Systematic Arbitrage Patterns</h2>
+                <div class="expandable">
+                    <div class="expandable-header" onclick="toggleExpand(this)">
+                        <span class="expand-icon">▶</span>
+                        <strong>7 Sources of Information Asymmetry</strong>
+                    </div>
+                    <div class="expandable-content">
+                        <p><strong>1. Geographic:</strong> Local info → Global networks</p>
+                        <p><strong>2. Platform:</strong> Info on Platform A → Buyers on Platform B</p>
+                        <p><strong>3. Language/Cultural:</strong> Language A → Language B networks</p>
+                        <p><strong>4. Time:</strong> Time A info → Time B buyer availability</p>
+                        <p><strong>5. Expertise:</strong> Technical info → Business applications</p>
+                        <p><strong>6. Scale:</strong> Small info sources → Large buyer networks</p>
+                        <p><strong>7. Formality:</strong> Informal info → Formal buying processes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="research-areas">
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Liquidation Arbitrage</h4>
+                    <p>Facebook groups → National liquidator networks</p>
+                    <span class="status-indicator status-completed">Analyzed</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Real Estate Distress</h4>
+                    <p>FSBO Facebook groups → Investor networks</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Equipment Arbitrage</h4>
+                    <p>Facebook Marketplace → Commercial buyers</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Labor/Talent Arbitrage</h4>
+                    <p>LinkedIn layoffs → Recruiting networks</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Manufacturing Capacity</h4>
+                    <p>Regional forums → Global brand networks</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>IP/Patent Arbitrage</h4>
+                    <p>Patent databases → R&D teams</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Bankruptcy/Legal</h4>
+                    <p>Legal filings → Distressed asset investors</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Platform Pricing Arbitrage</h4>
+                    <p>Language/geographic price discrimination → Optimized bookings</p>
+                    <span class="status-indicator status-in-progress">New Discovery</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Currency Conversion Arbitrage</h4>
+                    <p>Business payment inefficiencies → Optimized conversion</p>
+                    <span class="status-indicator status-in-progress">New Discovery</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Cross-Platform Reputation Arbitrage</h4>
+                    <p>Review differences across platforms → Reputation networks</p>
+                    <span class="status-indicator status-in-progress">New Discovery</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Social Media Lead Processing System</h4>
+                    <p>Public social posts → AI-qualified leads → Industry networks</p>
+                    <span class="status-indicator status-in-progress">Meta-System</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>OSINT Intelligence Arbitrage</h4>
+                    <p>Public data noise → AI-processed signals → Intelligence buyers</p>
+                    <span class="status-indicator status-in-progress">Meta-System</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Agent-to-Agent Commerce Infrastructure</h4>
+                    <p>Niche industry agent systems → Human-in-the-loop → Automated commerce</p>
+                    <span class="status-indicator status-not-started">Meta-System</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>VC Pitch Deck Fact-Checking Swarm</h4>
+                    <p>AI agent swarm → Verify deck claims → Proactive DD suggestions</p>
+                    <span class="status-indicator status-in-progress">High Potential</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Agricultural/Commodity</h4>
+                    <p>Farmer forums → Processors/exporters</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                    <button class="delete-btn" onclick="event.stopPropagation(); deleteItem(this)">×</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="models" class="tab-content">
+            <div class="card">
+                <h2>Revenue Models Analysis</h2>
+                <div class="expandable expanded">
+                    <div class="expandable-header" onclick="toggleExpand(this)">
+                        <span class="expand-icon">▼</span>
+                        <strong>Transaction Fee Model</strong>
+                    </div>
+                    <div class="expandable-content">
+                        <p><strong>Structure:</strong> 15-20% of spread between buy/sell</p>
+                        <p><strong>Example:</strong> Buy $10K, sell $15K → $1K fee</p>
+                        <p><strong>Pros:</strong> Only paid when value created</p>
+                        <p><strong>Cons:</strong> Requires capital for inventory</p>
+                    </div>
+                </div>
+                <div class="expandable">
+                    <div class="expandable-header" onclick="toggleExpand(this)">
+                        <span class="expand-icon">▶</span>
+                        <strong>Matching Fee Model</strong>
+                    </div>
+                    <div class="expandable-content">
+                        <p><strong>Structure:</strong> Fixed fee per connection ($500-2000)</p>
+                        <p><strong>Pros:</strong> No inventory risk, faster cash</p>
+                        <p><strong>Cons:</strong> Lower total value capture</p>
+                    </div>
+                </div>
+                <div class="expandable">
+                    <div class="expandable-header" onclick="toggleExpand(this)">
+                        <span class="expand-icon">▶</span>
+                        <strong>Subscription + Transaction Hybrid</strong>
+                    </div>
+                    <div class="expandable-content">
+                        <p><strong>Structure:</strong> Monthly fee + small transaction %</p>
+                        <p><strong>Pros:</strong> Predictable revenue + upside</p>
+                        <p><strong>Cons:</strong> Need critical mass of deal flow</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="validation" class="tab-content">
+            <div class="card validation-phases">
+                <h2>Validation Framework</h2>
+                <div class="phase" onclick="togglePhase(this)">
+                    <h3>Phase 1: Market Reality Check</h3>
+                    <div class="phase-questions">
+                        <div class="question">Do people actually negotiate these things?</div>
+                        <div class="question">Is there real money on the table?</div>
+                        <div class="question">Are current solutions inadequate?</div>
+                    </div>
+                </div>
+                <div class="phase" onclick="togglePhase(this)">
+                    <h3>Phase 2: Technical Feasibility</h3>
+                    <div class="phase-questions">
+                        <div class="question">Can we access the data needed for intelligent negotiation?</div>
+                        <div class="question">How standardized are the negotiation processes?</div>
+                        <div class="question">What legal/compliance constraints exist?</div>
+                    </div>
+                </div>
+                <div class="phase" onclick="togglePhase(this)">
+                    <h3>Phase 3: Business Model Viability</h3>
+                    <div class="phase-questions">
+                        <div class="question">How do we reach decision-makers?</div>
+                        <div class="question">Customer acquisition cost vs. lifetime value?</div>
+                        <div class="question">What defensible advantages can we build?</div>
+                    </div>
+                </div>
+                <div class="phase" onclick="togglePhase(this)">
+                    <h3>Phase 4: Scaling & Network Effects</h3>
+                    <div class="phase-questions">
+                        <div class="question">Does more usage create better outcomes?</div>
+                        <div class="question">Can we bring both buyers and sellers onto platform?</div>
+                        <div class="question">Winner-take-most dynamics potential?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="markets" class="tab-content">
+            <div class="research-areas">
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>B2B SaaS Renewals</h4>
+                    <p>Enterprise software subscription negotiations</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Insurance Premiums</h4>
+                    <p>Business insurance renewal negotiations</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Travel & Hospitality</h4>
+                    <p>Corporate travel and event negotiations</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Professional Services</h4>
+                    <p>Legal, accounting, consulting contracts</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Telecom & Utilities</h4>
+                    <p>Business communications and utility contracts</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                </div>
+                <div class="research-item" onclick="updateStatus(this)">
+                    <h4>Real Estate</h4>
+                    <p>Commercial lease and rental negotiations</p>
+                    <span class="status-indicator status-not-started">Not Started</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="scoring" class="tab-content">
+            <div class="card scoring-matrix">
+                <h2>Market Scoring Matrix</h2>
+                <div class="matrix-grid">
+                    <div class="matrix-cell matrix-header"></div>
+                    <div class="matrix-cell matrix-header">Info Asymmetry</div>
+                    <div class="matrix-cell matrix-header">Temporal Diff</div>
+                    <div class="matrix-cell matrix-header">Spatial Diff</div>
+                    <div class="matrix-cell matrix-header">Preference Diff</div>
+                    <div class="matrix-cell matrix-header">Capability Diff</div>
+                    
+                    <div class="matrix-cell matrix-row-header">B2B SaaS</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    
+                    <div class="matrix-cell matrix-row-header">Insurance</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    
+                    <div class="matrix-cell matrix-row-header">Travel</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                    <div class="matrix-cell score-cell" onclick="updateScore(this)">?</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Hide all tab buttons
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function togglePhase(element) {
+            element.classList.toggle('active');
+        }
+
+        function toggleExpand(element) {
+            element.parentElement.classList.toggle('expanded');
+        }
+
+        function updateStatus(element) {
+            const indicator = element.querySelector('.status-indicator');
+            const currentStatus = indicator.className;
+            
+            if (currentStatus.includes('not-started')) {
+                indicator.className = 'status-indicator status-in-progress';
+                indicator.textContent = 'In Progress';
+            } else if (currentStatus.includes('in-progress')) {
+                indicator.className = 'status-indicator status-completed';
+                indicator.textContent = 'Completed';
+            } else {
+                indicator.className = 'status-indicator status-not-started';
+                indicator.textContent = 'Not Started';
+            }
+        }
+
+        function updateScore(cell) {
+            const currentScore = cell.textContent;
+            let newScore;
+            
+            switch(currentScore) {
+                case '?':
+                    newScore = '1';
+                    cell.style.background = '#fed7d7';
+                    break;
+                case '1':
+                    newScore = '2';
+                    cell.style.background = '#feebc8';
+                    break;
+                case '2':
+                    newScore = '3';
+                    cell.style.background = '#faf089';
+                    break;
+                case '3':
+                    newScore = '4';
+                    cell.style.background = '#c6f6d5';
+                    break;
+                case '4':
+                    newScore = '5';
+                    cell.style.background = '#9ae6b4';
+                    break;
+                case '5':
+                    newScore = '?';
+                    cell.style.background = 'white';
+                    break;
+                default:
+                    newScore = '1';
+                    cell.style.background = '#fed7d7';
+            }
+            
+            cell.textContent = newScore;
+        }
+
+        function deleteItem(button) {
+            const item = button.closest('.research-item');
+            item.remove();
+        }
+
+        // Initialize some interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // You can add initialization code here
+        });
+    </script>
+</body>
+</html>

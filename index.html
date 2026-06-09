@@ -392,14 +392,15 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>AI Information Arbitrage Research Hub</h1>
+            <h1>J&R Research Hub</h1>
             <p>Systematic analysis of automated market-making opportunities</p>
         </div>
 
         <div class="nav-tabs">
         <div class="nav-tab active" onclick="showTab('overview')">Overview</div>
         <div class="nav-tab" onclick="showTab('arbitrage')">Information Arbitrage</div>
-        <div class="nav-tab" onclick="showTab('automation')">AI Automation</div>
+        <div class="nav-tab" onclick="showTab('services')">AI Services</div>
+        <div class="nav-tab" onclick="showTab('professional')">Professional Networks</div>
         <div class="nav-tab" onclick="showTab('validation')">Validation</div>
         <div class="nav-tab" onclick="showTab('scoring')">Scoring</div>
         </div>
@@ -680,18 +681,17 @@
             </div>
         </div>
 
-        <div id="automation" class="tab-content">
+        <div id="services" class="tab-content">
             <div class="card">
-                <h2>AI Process Automation</h2>
+                <h2>AI Services</h2>
                 <div class="expandable">
                     <div class="expandable-header" onclick="toggleExpand(this)">
                         <span class="expand-icon">▶</span>
-                        <strong>Different Business Model</strong>
+                        <strong>Direct Fee-for-Service Model</strong>
                     </div>
                     <div class="expandable-content">
-                        <p>These are <strong>AI automation services</strong>, not information arbitrage.</p>
-                        <p>Revenue from replacing manual processes with AI, not exploiting information asymmetries.</p>
-                        <p>Direct fee-for-service model vs. arbitrage spread capture.</p>
+                        <p>Revenue from replacing manual processes with AI automation.</p>
+                        <p>Direct fee-for-service model: $500-5K per task vs. arbitrage spread capture.</p>
                     </div>
                 </div>
                 
@@ -782,6 +782,123 @@
             </div>
         </div>
 
+        <div id="professional" class="tab-content">
+            <div class="card">
+                <h2>Professional Networks</h2>
+                <div class="expandable">
+                    <div class="expandable-header" onclick="toggleExpand(this)">
+                        <span class="expand-icon">▶</span>
+                        <strong>Geographic + Expertise Arbitrage</strong>
+                    </div>
+                    <div class="expandable-content">
+                        <p>Aggregate professionals from lower-cost regions with specialized expertise.</p>
+                        <p>Package their skills for AI companies needing human intelligence services.</p>
+                        <p>Revenue: Geographic arbitrage + expertise premium + scale efficiencies.</p>
+                    </div>
+                </div>
+                
+                <div class="stage-legend">
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #e2e8f0;"></div>
+                        <span>🔍 Identified</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #3182ce;"></div>
+                        <span>📊 Researching</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #dd6b20;"></div>
+                        <span>💬 Validating</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #805ad5;"></div>
+                        <span>⚙️ Designing</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #d69e2e;"></div>
+                        <span>🧪 Testing</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #38a169;"></div>
+                        <span>✅ Proven</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #718096;"></div>
+                        <span>⏸️ Paused</span>
+                    </div>
+                    <div class="stage-legend-item">
+                        <div class="stage-legend-color" style="background: #c53030;"></div>
+                        <span>❌ Killed</span>
+                    </div>
+                </div>
+            </div>
+            <div class="research-areas">
+                <div class="research-item" data-stage="identified" data-id="ai-training-professionals" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-identified"></div>
+                    </div>
+                    <h4>AI Training Professional Networks</h4>
+                    <p>Scale/Surge/Appen model: Global workforce → AI companies (OpenAI, Anthropic)</p>
+                    <span class="status-indicator stage-identified">🔍 Identified</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
+                </div>
+                <div class="research-item" data-stage="identified" data-id="localization-domain-experts" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-identified"></div>
+                    </div>
+                    <h4>Localization Domain Expert Networks</h4>
+                    <p>Language + Domain expertise: German financial analysts → FinTech AI localization</p>
+                    <span class="status-indicator stage-identified">🔍 Identified</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
+                </div>
+                <div class="research-item" data-stage="identified" data-id="regional-subject-matter-experts" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-identified"></div>
+                    </div>
+                    <h4>Regional Subject Matter Expert Networks</h4>
+                    <p>Industry specialists in emerging markets → AI companies expanding globally</p>
+                    <span class="status-indicator stage-identified">🔍 Identified</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
+                </div>
+                <div class="research-item" data-stage="identified" data-id="cultural-context-specialists" onclick="showStageProgression(this)">
+                    <div class="progress-indicator">
+                        <div class="progress-bar stage-identified"></div>
+                    </div>
+                    <h4>Cultural Context Specialist Networks</h4>
+                    <p>Local cultural experts → AI safety and alignment for global deployment</p>
+                    <span class="status-indicator stage-identified">🔍 Identified</span>
+                    <div class="stage-progression" style="display: none;">
+                        <div class="stage-btn active" onclick="changeStage(this, 'identified')">🔍</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'researching')">📊</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'validating')">💬</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'designing')">⚙️</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'testing')">🧪</div>
+                        <div class="stage-btn" onclick="changeStage(this, 'proven')">✅</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <div id="validation" class="tab-content">

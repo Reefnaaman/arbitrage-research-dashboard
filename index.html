@@ -113,6 +113,60 @@
             padding-bottom: 8px;
         }
 
+        .manifesto {
+            margin-bottom: 30px;
+            padding: 36px 40px;
+            background: linear-gradient(180deg, #ffffff 0%, #fafbff 100%);
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #3182ce;
+        }
+
+        .manifesto h2 {
+            font-size: 1.8em;
+            border-bottom: none;
+            margin-bottom: 8px;
+            color: #1a202c;
+            letter-spacing: -0.01em;
+        }
+
+        .manifesto h3 {
+            font-size: 1.05em;
+            margin-top: 28px;
+            margin-bottom: 10px;
+            color: #2d3748;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 600;
+        }
+
+        .manifesto p {
+            margin-bottom: 10px;
+            color: #4a5568;
+            font-size: 0.98em;
+            line-height: 1.65;
+        }
+
+        .manifesto-lead {
+            font-size: 1.15em !important;
+            color: #2d3748 !important;
+            font-weight: 500;
+            line-height: 1.55 !important;
+            padding: 8px 0 4px;
+        }
+
+        .manifesto-tldr {
+            margin-top: 32px !important;
+            padding: 16px 20px;
+            background: #f7fafc;
+            border-left: 3px solid #3182ce;
+            border-radius: 4px;
+            font-size: 1em !important;
+        }
+
+        .manifesto strong {
+            color: #1a202c;
+        }
+
         .expandable {
             margin-bottom: 20px;
         }
@@ -352,13 +406,49 @@
         </div>
 
         <div id="overview" class="tab-content active">
-            <div class="dashboard">
-                <div class="card">
-                    <h2>Thesis</h2>
-                    <p>AI agents capture value from pricing inefficiencies humans can't exploit at scale.</p>
-                    <p>Best opportunities start as human arbitrage → become agent infrastructure as the workflow standardizes.</p>
-                </div>
 
+            <div class="card manifesto">
+                <h2>From First Principles</h2>
+
+                <p class="manifesto-lead">Trade exists because two parties value the same thing differently. Finding the number where both win = price discovery = negotiation = arbitrage. Same activity, three vocabularies.</p>
+
+                <h3>What actually changed</h3>
+                <p>Most gaps stayed unbridged not because nobody noticed, but because <strong>the cost of bridging &gt; the value of the gap</strong> for a human. A human can't profitably negotiate your $14/mo Netflix, shop 40 conference rooms across 9 chains, or price-discover 200 pallets of mixed-SKU liquidation.</p>
+                <p>Agents collapse per-transaction cost toward zero. Millions of sub-economic gaps become economic. <strong>That's the only thing that changed.</strong> Everything else is consequence.</p>
+
+                <h3>The fork we haven't picked</h3>
+                <p>Three different companies hide inside this dashboard:</p>
+                <p><strong>A. Vertical product</strong> — Pick one gap, build the best agent, take a cut. $20–200M outcome. Moat: distribution.</p>
+                <p><strong>B. Horizontal rail</strong> — Infrastructure other agents negotiate on (identity, escrow, protocols, disputes). $1B+ if agent commerce happens. Moat: network effects. Risk: 2–5 years early, run out of cash.</p>
+                <p><strong>C. Research engine</strong> — Keep finding gaps faster than anyone, spin up wedges, harvest, redeploy. Studio/holdco. Moat: methodology + portfolio.</p>
+                <p>"Negotiation agent → marketplace" is A pretending to become B. Real path, hardest one. Until we pick, the 14-opportunity list is a procrastination device.</p>
+
+                <h3>The bet underneath all of it</h3>
+                <p>Every wedge here rests on one assumption: <strong>agents will be transacting at scale within ~3–5 years</strong>, and the rails don't exist yet.</p>
+                <p>If right → even a vertical wedge becomes a beachhead onto huge infra.<br>
+                If wrong (or 10 years out) → "AI that saves people money on bills." Feature, not company. Rocket Money territory.</p>
+
+                <h3>Where moats actually live</h3>
+                <p>For each wedge: <em>if 3 well-funded teams launched the same thing tomorrow, what would I have they don't?</em></p>
+                <p>• <strong>Subscription negotiation:</strong> distribution + email/bank integrations. Tech is commodity.</p>
+                <p>• <strong>Conference hotels:</strong> relationships with organizers. Tech is irrelevant.</p>
+                <p>• <strong>Liquidation:</strong> inventory access + buyer network. Tech is third-order.</p>
+                <p>• <strong>VC deck fact-checking:</strong> trust + speed. Tech matters more here.</p>
+                <p>• <strong>Professional networks → AI cos:</strong> already won (Scale, Surge, Appen). 5 years late.</p>
+                <p><strong>The moat is almost never the agent.</strong> The agent is the wrapper. The moat is distribution, supply, or trust. Real strategic question: <strong>which gap do I have unfair distribution into?</strong> That filter collapses 14 → 1–2.</p>
+
+                <h3>Next move</h3>
+                <p>Pick the smallest possible loop:</p>
+                <p>1. One gap.<br>
+                2. Where there's a real distribution edge.<br>
+                3. Manual version, 5 customers, 2 weeks. No agent — just a Google Sheet.<br>
+                4. If unit economics work manually → agent is just a cost reducer.<br>
+                5. If they don't work manually → no agent saves them.</p>
+
+                <p class="manifesto-tldr"><strong>TL;DR —</strong> Not in the market-picking phase. In the <em>what-am-I-building</em> phase (vertical vs. rails vs. studio) and the <em>what's-my-distribution-edge</em> phase. Pick those two before adding more opportunities to the grid.</p>
+            </div>
+
+            <div class="dashboard">
                 <div class="card">
                     <h2>Portfolio</h2>
                     <p>14 opportunities across 4 categories:</p>
@@ -375,14 +465,6 @@
                     <p>1. <strong>Email Subscription Negotiation</strong> — $180B+, 25% success fees</p>
                     <p>2. <strong>Conference Travel Infrastructure</strong> — $50B+, "Stripe for conference hotels"</p>
                     <p>3. <strong>Liquidation Network</strong> — $200B+, 3–7% transaction fees</p>
-                </div>
-
-                <div class="card">
-                    <h2>Strategy</h2>
-                    <p>Digital industries first (less friction than physical).</p>
-                    <p>Capture % of savings, no upfront cost.</p>
-                    <p>Negotiation agent as wedge → coordination marketplace.</p>
-                    <p>Provide agents, don't serve existing agent users (adoption still nascent).</p>
                 </div>
             </div>
         </div>

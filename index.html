@@ -113,48 +113,6 @@
             padding-bottom: 8px;
         }
 
-        .validation-phases {
-            grid-column: 1 / -1;
-        }
-
-        .phase {
-            margin-bottom: 20px;
-            border-left: 4px solid #e2e8f0;
-            padding-left: 16px;
-            cursor: pointer;
-        }
-
-        .phase.active {
-            border-left-color: #4299e1;
-            background: #f7fafc;
-            padding: 12px 16px;
-            border-radius: 8px;
-        }
-
-        .phase h3 {
-            font-size: 1.2em;
-            margin-bottom: 8px;
-            color: #2d3748;
-        }
-
-        .phase-questions {
-            display: none;
-            margin-top: 12px;
-        }
-
-        .phase.active .phase-questions {
-            display: block;
-        }
-
-        .question {
-            background: white;
-            padding: 12px 16px;
-            margin: 8px 0;
-            border-radius: 6px;
-            border-left: 3px solid #4299e1;
-            font-size: 0.95em;
-        }
-
         .expandable {
             margin-bottom: 20px;
         }
@@ -391,118 +349,40 @@
             <div class="nav-tab" onclick="showTab('services')">AI Services</div>
             <div class="nav-tab" onclick="showTab('professional')">Professional Networks</div>
             <div class="nav-tab" onclick="showTab('negotiation')">Negotiation Agents</div>
-            <div class="nav-tab" onclick="showTab('validation')">Validation</div>
         </div>
 
         <div id="overview" class="tab-content active">
             <div class="dashboard">
                 <div class="card">
-                    <h2>Research Portfolio Status</h2>
-                    <div class="expandable">
-                        <div class="expandable-header" onclick="toggleExpand(this)">
-                            <span class="expand-icon">▶</span>
-                            <strong>14 Opportunities Across 4 Categories</strong>
-                        </div>
-                        <div class="expandable-content">
-                            <p><strong>Core Thesis:</strong> AI agents can systematically capture value from pricing inefficiencies that humans can't exploit at scale.</p>
-                            
-                            <p><strong>Information Arbitrage:</strong> 6 opportunities - exploiting market inefficiencies</p>
-                            <p><strong>AI Services:</strong> 3 opportunities - replacing manual processing with AI</p>
-                            <p><strong>Professional Networks:</strong> 2 opportunities - connecting workforce with AI companies</p>
-                            <p><strong>Negotiation Agents:</strong> 3 opportunities - capturing latent value through systematic negotiation</p>
-                            
-                            <br>
-                            <p><strong>Stage Distribution:</strong></p>
-                            <p>🔍 Identified: 10 opportunities | 📊 Researching: 2 | 💬 Validating: 2</p>
-                            
-                            <br>
-                            <p><strong>Top 3 Immediate Opportunities:</strong></p>
-                            <p>1. <strong>Email Subscription Negotiation</strong> - $180B+ market, 25% success fees</p>
-                            <p>2. <strong>Conference Travel Infrastructure</strong> - "Stripe for Conference Hotels", $50B+ market</p>
-                            <p>3. <strong>Liquidation Arbitrage Network</strong> - 3-7% transaction fees, $200B+ market</p>
-                        </div>
-                    </div>
+                    <h2>Thesis</h2>
+                    <p>AI agents capture value from pricing inefficiencies humans can't exploit at scale.</p>
+                    <p>Best opportunities start as human arbitrage → become agent infrastructure as the workflow standardizes.</p>
                 </div>
 
                 <div class="card">
-                    <h2>Agent Systems Framework</h2>
-                    <div class="expandable">
-                        <div class="expandable-header" onclick="toggleExpand(this)">
-                            <span class="expand-icon">▶</span>
-                            <strong>4 Core Agent Commerce Questions</strong>
-                        </div>
-                        <div class="expandable-content">
-                            <p><strong>What This Research Is About:</strong> Systematic research into AI-powered arbitrage opportunities where agents capture value from pricing inefficiencies across different markets, timeframes, and information contexts.</p>
-                            
-                            <br>
-                            
-                            <p><strong>Niche industry agent systems</strong> - Where are agents already transacting?</p>
-                            <p><strong>Human-in-the-loop commerce</strong> - What manual processes are ripe for agent assistance?</p>
-                            <p><strong>Agent-to-agent infrastructure</strong> - The pipes needed for automated commerce</p>
-                            <p><strong>Industry-specific agent protocols</strong> - How agents communicate in specialized markets</p>
-                        </div>
-                    </div>
+                    <h2>Portfolio</h2>
+                    <p>14 opportunities across 4 categories:</p>
+                    <p>• <strong>Information Arbitrage</strong> — 6 · pricing inefficiencies</p>
+                    <p>• <strong>AI Services</strong> — 3 · replacing manual processing</p>
+                    <p>• <strong>Professional Networks</strong> — 2 · workforce → AI companies</p>
+                    <p>• <strong>Negotiation Agents</strong> — 3 · latent value via negotiation</p>
+                    <br>
+                    <p>🔍 10 Identified · 📊 2 Researching · 💬 2 Validating</p>
                 </div>
 
                 <div class="card">
-                    <h2>Next Agent Markets</h2>
-                    <div class="expandable">
-                        <div class="expandable-header" onclick="toggleExpand(this)">
-                            <span class="expand-icon">▶</span>
-                            <strong>Evolution from Human Arbitrage to Agent Infrastructure</strong>
-                        </div>
-                        <div class="expandable-content">
-                            <p><strong>Core Pattern:</strong> The best opportunities start as human arbitrage and naturally evolve into agent infrastructure as standardization increases.</p>
-                            
-                            <br>
-                            
-                            <p><strong>Stage 1: Human Arbitrage</strong> - Manual price discovery, relationship-heavy, high transaction costs</p>
-                            <p><strong>Stage 2: Hybrid Systems</strong> - AI-assisted price discovery, some automation, reduced friction</p>
-                            <p><strong>Stage 3: Agent Infrastructure</strong> - Fully automated agent-to-agent commerce, standardized protocols</p>
-                            
-                            <br>
-                            
-                            <p><strong>Examples:</strong></p>
-                            <p>• <strong>Liquidation:</strong> FB groups → National networks → Automated marketplace</p>
-                            <p>• <strong>Conference Hotels:</strong> Manual booking → Conference APIs → Industry standard</p>
-                            <p>• <strong>Subscription Negotiation:</strong> Manual calls → Email scanning → Auto-negotiation</p>
-                            
-                            <br>
-                            
-                            <p><strong>Strategic Insight:</strong> Focus on markets with clear path from human inefficiency to agent standardization. Build the infrastructure that tomorrow's agent economy will run on.</p>
-                        </div>
-                    </div>
+                    <h2>Top 3 Wedges</h2>
+                    <p>1. <strong>Email Subscription Negotiation</strong> — $180B+, 25% success fees</p>
+                    <p>2. <strong>Conference Travel Infrastructure</strong> — $50B+, "Stripe for conference hotels"</p>
+                    <p>3. <strong>Liquidation Network</strong> — $200B+, 3–7% transaction fees</p>
                 </div>
 
                 <div class="card">
-                    <h2>Key Research Meetings</h2>
-                    <div class="expandable">
-                        <div class="expandable-header" onclick="toggleExpand(this)">
-                            <span class="expand-icon">▶</span>
-                            <strong>6/3/26 - Coffee - Jeremy & Reef</strong>
-                        </div>
-                        <div class="expandable-content">
-                            <p><strong>Main Conclusion:</strong> Identify initial industry with supply/demand inefficiencies solvable agentically with clear value capture.</p>
-                            
-                            <p><strong>Core Approach:</strong> Vision-driven product starting lightweight MVP → step-by-step scaling like Eleven Labs deck approach.</p>
-                            
-                            <p><strong>Negotiation Agent as Wedge:</strong> Build negotiation agent first → expand into coordination marketplace/clearinghouse enabling group buying.</p>
-                            
-                            <p><strong>Key Insights:</strong></p>
-                            <p>• Focus on digital industries for less friction vs. physical goods</p>
-                            <p>• Revenue model: capture percentage of savings, no upfront cost</p>
-                            <p>• Avoid pure extractive solutions unless they feed value up chain</p>
-                            <p>• Start by providing agents vs. serving existing agent users (adoption still nascent)</p>
-                            
-                            <p><strong>Directions Explored:</strong></p>
-                            <p>• SaaS subscription optimization - viable but no moat, many competitors</p>
-                            <p>• Shipping container optimization - already solved market</p>
-                            <p>• Warehouse space - too complex, manual inspection required</p>
-                            <p>• Influencer/UGC marketing - inefficient pricing, performance disconnect</p>
-                            
-                            <p><strong>Next Steps:</strong> Find digital industry wedge for negotiation agent that can evolve to marketplace infrastructure.</p>
-                        </div>
-                    </div>
+                    <h2>Strategy</h2>
+                    <p>Digital industries first (less friction than physical).</p>
+                    <p>Capture % of savings, no upfront cost.</p>
+                    <p>Negotiation agent as wedge → coordination marketplace.</p>
+                    <p>Provide agents, don't serve existing agent users (adoption still nascent).</p>
                 </div>
             </div>
         </div>
@@ -535,24 +415,6 @@
                     <div class="opportunity-meta">
                         <span class="stage-indicator stage-validating">💬 Validating</span>
                     </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-high">High</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-high">High</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-medium">Medium</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-medium">6-12 months</span>
-                        </div>
-                    </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
                             <div class="stage-btn" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
@@ -570,24 +432,6 @@
                     <div class="opportunity-description">Language/geographic price discrimination → Optimized bookings</div>
                     <div class="opportunity-meta">
                         <span class="stage-indicator stage-researching">📊 Researching</span>
-                    </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-medium">Medium</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-high">High</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-low">Low</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-low">3-6 months</span>
-                        </div>
                     </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
@@ -607,24 +451,6 @@
                     <div class="opportunity-meta">
                         <span class="stage-indicator stage-researching">📊 Researching</span>
                     </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                    </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
                             <div class="stage-btn" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
@@ -642,24 +468,6 @@
                     <div class="opportunity-description">Conference booking APIs → Integrated hotel/travel packages</div>
                     <div class="opportunity-meta">
                         <span class="stage-indicator stage-validating">💬 Validating</span>
-                    </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-high">$10B+ annually</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-high">High - fragmented booking systems</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-medium">Medium - complex integrations</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-medium">6-12 months</span>
-                        </div>
                     </div>
                     <div class="expandable-details">
                         <div class="expandable">
@@ -862,24 +670,6 @@ TokenConference.addHotelPackage({<br>
                     <div class="opportunity-meta">
                         <span class="stage-indicator stage-validating">💬 Validating</span>
                     </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-medium">Medium</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-medium">Medium</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-high">High</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-high">12+ months</span>
-                        </div>
-                    </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
                             <div class="stage-btn" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
@@ -898,24 +688,6 @@ TokenConference.addHotelPackage({<br>
                     <div class="opportunity-meta">
                         <span class="stage-indicator stage-identified">🔍 Identified</span>
                     </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                    </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
                             <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
@@ -933,24 +705,6 @@ TokenConference.addHotelPackage({<br>
                     <div class="opportunity-description">Public social posts → AI-qualified leads → CRM integration</div>
                     <div class="opportunity-meta">
                         <span class="stage-indicator stage-identified">🔍 Identified</span>
-                    </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
                     </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
@@ -994,24 +748,6 @@ TokenConference.addHotelPackage({<br>
                     <div class="opportunity-meta">
                         <span class="stage-indicator stage-identified">🔍 Identified</span>
                     </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                    </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
                             <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
@@ -1029,24 +765,6 @@ TokenConference.addHotelPackage({<br>
                     <div class="opportunity-description">Language + Domain expertise: German financial analysts → FinTech AI localization</div>
                     <div class="opportunity-meta">
                         <span class="stage-indicator stage-identified">🔍 Identified</span>
-                    </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
                     </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
@@ -1066,24 +784,6 @@ TokenConference.addHotelPackage({<br>
                     <div class="opportunity-meta">
                         <span class="stage-indicator stage-identified">🔍 Identified</span>
                     </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                    </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
                             <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
@@ -1101,24 +801,6 @@ TokenConference.addHotelPackage({<br>
                     <div class="opportunity-description">Local cultural experts → AI safety and alignment for global deployment</div>
                     <div class="opportunity-meta">
                         <span class="stage-indicator stage-identified">🔍 Identified</span>
-                    </div>
-                    <div class="framework-scores">
-                        <div class="framework-score">
-                            <span>Market Size:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Info Asymmetry:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Technical Risk:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
-                        <div class="framework-score">
-                            <span>Time to Market:</span>
-                            <span class="score-value score-unknown">TBD</span>
-                        </div>
                     </div>
                     <div class="stage-progression">
                         <div class="stage-buttons">
@@ -1164,283 +846,24 @@ TokenConference.addHotelPackage({<br>
                         <div class="opportunity-meta">
                             <span class="stage-indicator stage-identified">🔍 Identified</span>
                         </div>
-                        <div class="framework-scores">
-                            <div class="framework-score">
-                                <span>Market Size:</span>
-                                <span class="score-value score-high">$180B+ consumer subscriptions</span>
-                            </div>
-                            <div class="framework-score">
-                                <span>Value Capture:</span>
-                                <span class="score-value score-high">15-40% savings typical</span>
-                            </div>
-                            <div class="framework-score">
-                                <span>Technical Risk:</span>
-                                <span class="score-value score-low">Low - existing APIs</span>
-                            </div>
-                            <div class="framework-score">
-                                <span>Time to Market:</span>
-                                <span class="score-value score-low">1-3 months MVP</span>
-                            </div>
-                        </div>
-                        <div class="expandable-details">
-                            <div class="expandable">
-                                <div class="expandable-header" onclick="toggleExpand(this)">
-                                    <span class="expand-icon">▶</span>
-                                    <strong>Market Opportunity & Business Model</strong>
-                                </div>
-                                <div class="expandable-content">
-                                    <p><strong>The Wedge Strategy:</strong><br>
-                                    • Scan user's email for subscription receipts/renewals<br>
-                                    • Identify negotiable services (SaaS, utilities, insurance, subscriptions)<br>
-                                    • Research cancellation/downgrade pathways for each service<br>
-                                    • Automate negotiation via email, chat, or phone calls<br>
-                                    • Handle the entire process: threat to cancel → counteroffer → acceptance</p>
-                                    
-                                    <p><strong>Perfect Starting Point:</strong><br>
-                                    • No enterprise sales cycle - direct consumer product<br>
-                                    • Immediate value demonstration (scan email → show potential savings)<br>
-                                    • Clear ROI measurement (before/after subscription costs)<br>
-                                    • Scales from individual consumers to small business owners<br>
-                                    • Email integration = single permission for ongoing monitoring</p>
-                                    
-                                    <p><strong>Technical Implementation:</strong><br>
-                                    • Gmail/Outlook API integration for receipt scanning<br>
-                                    • AI pattern recognition for subscription identification<br>
-                                    • Automated research of cancellation policies per service<br>
-                                    • Multi-channel negotiation bots (email, chat, phone)<br>
-                                    • Success rate tracking and optimization per service type</p>
-                                    
-                                    <p><strong>Go-to-Market Progression:</strong><br>
-                                    • Phase 1: Consumer app - "scan email, save money"<br>
-                                    • Phase 2: Small business owners (multiple subscriptions)<br>
-                                    • Phase 3: SMB procurement teams (enterprise subscriptions)<br>
-                                    • Phase 4: White-label for financial advisors/accountants</p>
-                                </div>
-                            </div>
-                            
-                            <div class="expandable">
-                                <div class="expandable-header" onclick="toggleExpand(this)">
-                                    <span class="expand-icon">▶</span>
-                                    <strong>Technical Implementation</strong>
-                                </div>
-                                <div class="expandable-content">
-                                    <p><strong>Email Scanning Engine:</strong><br>
-                                    • NLP pattern recognition for subscription receipts<br>
-                                    • Service identification: Netflix, Spotify, Adobe, utilities, insurance<br>
-                                    • Renewal date tracking and proactive negotiation scheduling<br>
-                                    • Price change detection to trigger renegotiation workflows</p>
-                                    
-                                    <p><strong>Negotiation Automation:</strong><br>
-                                    • Service-specific negotiation scripts optimized by success rate<br>
-                                    • Multi-modal execution: email templates, chat interactions, phone calls<br>
-                                    • Escalation pathways: retention departments, manager escalation<br>
-                                    • Dynamic offer evaluation and counteroffer generation</p>
-                                    
-                                    <p><strong>Integration Stack:</strong><br>
-                                    • Gmail/Outlook APIs for email access and parsing<br>
-                                    • Web scraping for service cancellation flow research<br>
-                                    • Twilio/voice APIs for phone-based negotiations<br>
-                                    • Webhook integrations for real-time service monitoring</p>
-                                    
-                                    <p><strong>Revenue Model:</strong><br>
-                                    • Freemium: Free email scan + savings estimate<br>
-                                    • 25% success fee on achieved savings<br>
-                                    • Target: $50-200 annual savings per consumer<br>
-                                    • Scale: $500-5K annual savings per small business</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stage-progression">
-                            <div class="stage-buttons">
-                                <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
-                            </div>
-                        </div>
-                    </div>
-
+    
                     <div class="opportunity-item" data-stage="identified" data-id="travel-negotiation-platform" onclick="toggleStageProgression(this)">
                         <div class="opportunity-title">Travel & Hospitality Negotiation Platform</div>
                         <div class="opportunity-description">Hidden travel discounts → Automated booking optimization</div>
                         <div class="opportunity-meta">
                             <span class="stage-indicator stage-identified">🔍 Identified</span>
                         </div>
-                        <div class="framework-scores">
-                            <div class="framework-score">
-                                <span>Market Size:</span>
-                                <span class="score-value score-high">$1.4T travel market</span>
-                            </div>
-                            <div class="framework-score">
-                                <span>Value Capture:</span>
-                                <span class="score-value score-medium">10-25% savings potential</span>
-                            </div>
-                            <div class="framework-score">
-                                <span>Technical Risk:</span>
-                                <span class="score-value score-medium">Medium - platform integrations</span>
-                            </div>
-                            <div class="framework-score">
-                                <span>Time to Market:</span>
-                                <span class="score-value score-medium">6-12 months</span>
-                            </div>
-                        </div>
-                        <div class="expandable-details">
-                            <div class="expandable">
-                                <div class="expandable-header" onclick="toggleExpand(this)">
-                                    <span class="expand-icon">▶</span>
-                                    <strong>High-Level Approach</strong>
-                                </div>
-                                <div class="expandable-content">
-                                    <p><strong>Core Opportunities:</strong> Airbnb host negotiations, corporate travel optimization, event venue coordination</p>
-                                    <p><strong>Revenue Model:</strong> 15% of travel savings captured</p>
-                                    <p><strong>Market Entry:</strong> Start with Airbnb negotiation bot → expand to corporate travel</p>
-                                    <p><strong>Key Insight:</strong> Most travel bookings are negotiable but travelers don't know this</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stage-progression">
-                            <div class="stage-buttons">
-                                <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
-                            </div>
-                        </div>
-                    </div>
-
+    
                     <div class="opportunity-item" data-stage="identified" data-id="insurance-premium-optimization" onclick="toggleStageProgression(this)">
                         <div class="opportunity-title">SMB Insurance Premium Optimization</div>
                         <div class="opportunity-description">Manual insurance renewals → AI-driven premium reduction</div>
                         <div class="opportunity-meta">
                             <span class="stage-indicator stage-identified">🔍 Identified</span>
                         </div>
-                        <div class="framework-scores">
-                            <div class="framework-score">
-                                <span>Market Size:</span>
-                                <span class="score-value score-high">$200B+ SMB insurance</span>
-                            </div>
-                            <div class="framework-score">
-                                <span>Value Capture:</span>
-                                <span class="score-value score-medium">10-25% premium reduction</span>
-                            </div>
-                            <div class="framework-score">
-                                <span>Technical Risk:</span>
-                                <span class="score-value score-medium">Medium - regulatory complexity</span>
-                            </div>
-                            <div class="framework-score">
-                                <span>Time to Market:</span>
-                                <span class="score-value score-medium">9-18 months</span>
-                            </div>
-                        </div>
-                        <div class="expandable-details">
-                            <div class="expandable">
-                                <div class="expandable-header" onclick="toggleExpand(this)">
-                                    <span class="expand-icon">▶</span>
-                                    <strong>Insurance Market Inefficiencies</strong>
-                                </div>
-                                <div class="expandable-content">
-                                    <p><strong>The Problem:</strong><br>
-                                    • 80% of SMBs overpay on insurance premiums<br>
-                                    • Average small business: $50K-$500K annual premiums<br>
-                                    • Manual renewal process leads to status quo bias<br>
-                                    • Insurance agents focus on acquisition, not optimization</p>
-                                    
-                                    <p><strong>Optimization Opportunities:</strong><br>
-                                    • Risk profile improvements (safety programs, certifications)<br>
-                                    • Coverage optimization (removing unnecessary add-ons)<br>
-                                    • Carrier arbitrage (switching to better-priced providers)<br>
-                                    • Bundle optimization across multiple policy types</p>
-                                    
-                                    <p><strong>Target Market:</strong><br>
-                                    • Small businesses: 10-500 employees<br>
-                                    • Focus: Construction, manufacturing, professional services<br>
-                                    • Geographic expansion: State-by-state rollout<br>
-                                    • Partnership model with regional insurance brokers</p>
-                                </div>
-                            </div>
-                            
-                            <div class="expandable">
-                                <div class="expandable-header" onclick="toggleExpand(this)">
-                                    <span class="expand-icon">▶</span>
-                                    <strong>AI-Driven Optimization Process</strong>
-                                </div>
-                                <div class="expandable-content">
-                                    <p><strong>Risk Assessment AI:</strong><br>
-                                    • Analyze business operations for risk reduction opportunities<br>
-                                    • Identify compliance gaps that increase premiums<br>
-                                    • Recommend safety programs and certifications<br>
-                                    • Track risk improvement over time</p>
-                                    
-                                    <p><strong>Market Intelligence:</strong><br>
-                                    • Real-time carrier pricing across all providers<br>
-                                    • Industry benchmark database for similar businesses<br>
-                                    • Regulatory change tracking for optimization opportunities<br>
-                                    • Claims history analysis for pattern recognition</p>
-                                    
-                                    <p><strong>Revenue Model:</strong><br>
-                                    • 30% of first-year premium savings<br>
-                                    • Target: $24M ARR by Year 3<br>
-                                    • Average customer value: $15K-25K annually<br>
-                                    • High retention: insurance switching costs create stickiness</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stage-progression">
-                            <div class="stage-buttons">
-                                <div class="stage-btn active" onclick="changeStage(this, 'identified', event)">🔍 Identified</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'researching', event)">📊 Researching</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'validating', event)">💬 Validating</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'designing', event)">⚙️ Designing</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'testing', event)">🧪 Testing</div>
-                                <div class="stage-btn" onclick="changeStage(this, 'proven', event)">✅ Proven</div>
-                            </div>
-                        </div>
                     </div>
-                </div>
             </div>
         </div>
 
-        <div id="validation" class="tab-content">
-            <div class="card validation-phases">
-                <h2>Validation Framework</h2>
-                <div class="phase" onclick="togglePhase(this)">
-                    <h3>Phase 1: Market Reality Check</h3>
-                    <div class="phase-questions">
-                        <div class="question">Do people actually negotiate these things?</div>
-                        <div class="question">Is there real money on the table?</div>
-                        <div class="question">Are current solutions inadequate?</div>
-                    </div>
-                </div>
-                <div class="phase" onclick="togglePhase(this)">
-                    <h3>Phase 2: Technical Feasibility</h3>
-                    <div class="phase-questions">
-                        <div class="question">Can we access the data needed for intelligent negotiation?</div>
-                        <div class="question">How standardized are the negotiation processes?</div>
-                        <div class="question">What legal/compliance constraints exist?</div>
-                    </div>
-                </div>
-                <div class="phase" onclick="togglePhase(this)">
-                    <h3>Phase 3: Business Model Viability</h3>
-                    <div class="phase-questions">
-                        <div class="question">How do we reach decision-makers?</div>
-                        <div class="question">Customer acquisition cost vs. lifetime value?</div>
-                        <div class="question">What defensible advantages can we build?</div>
-                    </div>
-                </div>
-                <div class="phase" onclick="togglePhase(this)">
-                    <h3>Phase 4: Scaling & Network Effects</h3>
-                    <div class="phase-questions">
-                        <div class="question">Does more usage create better outcomes?</div>
-                        <div class="question">Can we bring both buyers and sellers onto platform?</div>
-                        <div class="question">Winner-take-most dynamics potential?</div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -1463,18 +886,6 @@ TokenConference.addHotelPackage({<br>
             expandable.classList.toggle('active');
         }
 
-        function togglePhase(element) {
-            // Close all phases first
-            const allPhases = document.querySelectorAll('.phase');
-            allPhases.forEach(phase => {
-                if (phase !== element) {
-                    phase.classList.remove('active');
-                }
-            });
-            
-            // Toggle clicked phase
-            element.classList.toggle('active');
-        }
 
         function toggleStageProgression(element) {
             // Close all other progressions first

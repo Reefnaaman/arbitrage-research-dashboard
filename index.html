@@ -84,6 +84,29 @@
             display: block;
         }
 
+        .prose-block {
+            display: none;
+            margin-top: 18px;
+            padding: 18px 22px;
+            background: #fafbff;
+            border-left: 3px solid #3182ce;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95em;
+            line-height: 1.65;
+            color: #2d3748;
+        }
+        .prose-block strong { color: #1a202c; }
+        .prose-block ul { margin: 8px 0 8px 20px; }
+        .prose-block li { margin-bottom: 4px; }
+        .prose-block blockquote {
+            margin: 10px 0;
+            padding: 10px 16px;
+            border-left: 3px solid #cbd5e0;
+            color: #4a5568;
+            font-style: italic;
+        }
+        #fundamentals.show-prose .prose-block { display: block; }
+
         .dashboard {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -403,6 +426,12 @@
                 <h2>The Fundamental Layer</h2>
                 <p class="manifesto-lead">Everything we build sits on top of this. If a venture doesn't trace back to one of these primitives, it doesn't belong on the list.</p>
                 <p>Six diagrams. Each one a load-bearing idea. Read top to bottom.</p>
+                <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid #e2e8f0;">
+                    <label style="display:inline-flex; align-items:center; gap:10px; cursor:pointer; font-size:0.95em; color:#2d3748; font-weight:500;">
+                        <input type="checkbox" id="showProse" onchange="document.getElementById('fundamentals').classList.toggle('show-prose', this.checked)" style="width:18px; height:18px; cursor:pointer; accent-color:#3182ce;">
+                        Show full text under each diagram
+                    </label>
+                </div>
             </div>
 
             <!-- 1. Why trade exists -->
@@ -427,6 +456,14 @@
                     <text x="390" y="135" text-anchor="middle" font-size="14" fill="#1a202c" font-weight="700">ZOPA — both win</text>
                     <text x="390" y="232" text-anchor="middle" font-size="12" fill="#4a5568" font-style="italic">Price discovery = finding any point in this band</text>
                 </svg>
+                <div class="prose-block">
+                    <ul>
+                        <li><strong>Seller's floor</strong> — won't sell below this number</li>
+                        <li><strong>Buyer's ceiling</strong> — won't pay above this number</li>
+                        <li><strong>ZOPA</strong> — the band between them, where both walk away better off</li>
+                    </ul>
+                    No ZOPA = no trade. The width of the ZOPA = the size of the prize.
+                </div>
             </div>
 
             <!-- 2. The 5 difference types -->
@@ -475,6 +512,15 @@
                     </g>
                 </svg>
                 <p style="margin-top: 14px; color: #4a5568; font-size: 0.95em;"><strong>Test:</strong> Name a business. Trace the value it captures to one of these five. If you can't, you're describing a tool, not an arbitrage.</p>
+                <div class="prose-block">
+                    <ol style="margin-left:20px;">
+                        <li><strong>Spatial</strong> — access to different markets / resources / geographies</li>
+                        <li><strong>Temporal</strong> — need now vs. can wait (the entire lending industry)</li>
+                        <li><strong>Information</strong> — who knows what about prices, supply, demand</li>
+                        <li><strong>Preference</strong> — same thing valued differently by different people</li>
+                        <li><strong>Capability</strong> — some can do things others can't</li>
+                    </ol>
+                </div>
             </div>
 
             <!-- 3. Why most gaps stayed unbridged -->
@@ -524,6 +570,15 @@
                     <text x="680" y="20" text-anchor="middle" font-size="10" fill="#718096" font-style="italic">(already economic)</text>
                 </svg>
                 <p style="margin-top: 14px; color: #4a5568; font-size: 0.95em;"><strong>The only thing that changed:</strong> agents collapsed per-transaction cost toward zero. Everything else is consequence.</p>
+                <div class="prose-block">
+                    Two axes: <strong>X</strong> = gap size (value at stake), <strong>Y</strong> = cost to bridge. Three zones, top to bottom:
+                    <ul>
+                        <li><strong>Above the human floor</strong> — too expensive even for humans. Real gaps that never got bridged because the work cost more than the prize.</li>
+                        <li><strong>Between human floor and agent floor — "Newly economic"</strong> — millions of gaps that were uneconomic at human cost but profitable at agent cost. This is the entire opportunity.</li>
+                        <li><strong>Below the agent floor (~0)</strong> — basically free to attempt.</li>
+                    </ul>
+                    A $14/mo subscription renegotiation, conference room shopping across chains — tiny gaps that fit inside the agent zone. Enterprise M&amp;A was always economic above the human floor — not the interesting zone.
+                </div>
             </div>
 
             <!-- 4. Trade = Price Discovery = Negotiation = Arbitrage -->
@@ -561,9 +616,17 @@
                         <line x1="502" y1="65" x2="435" y2="85" stroke="#cbd5e0" stroke-width="1.5"/>
                     </g>
                 </svg>
+                <div class="prose-block">
+                    All four mean: <strong>find the number where both win.</strong>
+                    <ul>
+                        <li><strong>Trade</strong> — economics vocab</li>
+                        <li><strong>Price discovery</strong> — markets vocab</li>
+                        <li><strong>Negotiation</strong> — commercial vocab</li>
+                        <li><strong>Arbitrage</strong> — trader vocab</li>
+                    </ul>
+                    If you're building in one of these spaces and your competitors are framing in a different vocab, you're often the only one who sees the full market.
+                </div>
             </div>
-
-            <!-- 5. The build fork -->
             <div class="card">
                 <h2>5 · The Build Fork — Tool vs. Loop Owner</h2>
                 <p style="margin-bottom: 16px; color: #4a5568;">Once a gap becomes economic, you can build two very different things. The same opportunity can support either — but they are different companies with different physics.</p>
@@ -597,6 +660,10 @@
                     <text x="480" y="280" font-size="11" fill="#4a5568">• Defensible if we hit ~50% loop coverage</text>
                 </svg>
                 <p style="margin-top: 14px; color: #4a5568; font-size: 0.95em;"><strong>Sweet spot:</strong> loops that are ~50% automatable today with an obvious trajectory. 80% = tool in disguise. 20% = too early.</p>
+                <div class="prose-block">
+                    <strong>Sell the tool</strong> — "here's software, you operate it." SaaS pricing. Customer owns the outcome. Lower revenue per account. Faster to ship. Commodity risk over time.<br><br>
+                    <strong>Run the loop</strong> — "we own the outcome, pay us on results." % of value captured. We own the metric. Higher revenue per account. Slower to ship, harder to copy. Defensible if we hit ~50% loop coverage.
+                </div>
             </div>
 
             <!-- 6. The decision funnel -->
@@ -639,6 +706,16 @@
                     <polygon points="260,330 540,330 500,370 300,370" fill="#1a202c" stroke="#1a202c" stroke-width="2"/>
                     <text x="400" y="355" text-anchor="middle" font-size="14" fill="white" font-weight="700">BUILD</text>
                 </svg>
+                <div class="prose-block">
+                    Every opportunity passes through this funnel. If it fails a layer, it's killed or parked — not moved forward "because it's interesting."
+                    <ol style="margin-left:20px;">
+                        <li><strong>L1 · Is there a real ZOPA?</strong> Which of the 5 primitives creates the gap?</li>
+                        <li><strong>L2 · Is the gap newly economic?</strong> Was it uneconomic at human cost, economic at agent cost?</li>
+                        <li><strong>L3 · Can we credibly own the outcome?</strong> Tool vs. Loop — which side are we on?</li>
+                        <li><strong>L4 · Is the loop ~50% automatable now?</strong> Not too early, not already a commodity.</li>
+                        <li><strong>BUILD.</strong></li>
+                    </ol>
+                </div>
             </div>
 
             <div class="card" style="background: #1a202c; color: #e2e8f0;">
